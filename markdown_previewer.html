@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Timothy C Stockton II -->
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+  <title>TCSII Portfolio | Markdown Previewer </title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Resources/logo_favicon_psidemica_black.png" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>                                <!-- the react library -->
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>                           <!-- the react DOM -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>                               <!-- enables babel so Javascript can be used in the browser -->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #previewer {
+        height: 650px;
+        width: 600px;
+        margin: auto;
+        padding: 5px;
+        background-color: blue;
+
+    }
+    #editor {
+        height: 300px;
+        width: 90%;
+        border: 3px solid yellow;
+        padding: 20px;
+
+    }
+    #preview {
+        height: 300px;
+        color: white;
+        background-color: green;
+    }
+    @media (max-width: 650px) {
+        .mobile-menu {
+            display: block;
+        }
+        .normal-menu {
+            display: none;
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header">
+  </header>
+
+  <main id="main">
+    <div class="center">
+      <h1>Markdown Previewer</h1>
+    </div>
+    <br>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="drop">
+    </div>
+    <br>
+  </main>
+
+  <footer>
+    <nav id="bottom-nav">
+      <a href="index.html">Home</a>&nbsp;
+      <a href="https://pandemica.online" target="blank">Pandemica Online</a>&nbsp;
+      <a href="javascript_calculator.html">JavaScript Calculator</a>&nbsp;
+      <a href="random_quote_machine.html">Random Quote Machine</a>&nbsp;
+      <a href="drum_machine.html">Drum Machine</a>&nbsp;
+      <a href="survey_form.html">Survey</a>
+    </nav>
+    <p>Copyright &copy; 2020 Timothy Stockton</p>
+    <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
+  </footer>
+
+  <script type="text/babel">
+    class Previewer extends React.Component {
+        state = {                           /* use state to track problem and display */
+            display: 0,
+        }
+
+    handleClick = (e) => {          /* what happens when a button is pushed */
+    }
+        render () {         // what is being rendered
+            return (
+                <div id="previewer">
+                    <textarea id="editor">input</textarea>
+                    <div id="preview">output</div>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Previewer />, document.getElementById("drop"));       /* choose where to render to */
+  </script>
+
+</body>
+
+</html>
