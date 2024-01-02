@@ -1,0 +1,34 @@
+function rot13(str) {
+
+  var tempArr = str.split("");
+  var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
+                  'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  var answer = [];
+  var regex = new RegExp(/\w/);
+
+  //compare given letters to alphabet
+    function unshiftedLetter(letter) {
+      return letter == tempArr[i];
+    }
+
+  //loop through given string
+  for (var i = 0; i < tempArr.length; i++) {
+
+    if (tempArr[i].match(regex)) {
+
+      //push shifted letter
+      var index = alphabet.findIndex(unshiftedLetter);
+      var trueIndex = (index - 13);
+      if (trueIndex < 0) {trueIndex += 26}
+      answer.push(alphabet[trueIndex]);
+    } else {
+      //push non letter character
+      answer.push(tempArr[i]);
+    }
+  }
+
+  return answer.join("");
+}
+
+
+LBH QVQ VG

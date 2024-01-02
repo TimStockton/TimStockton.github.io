@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Timothy C Stockton II -->
+
+<head>
+    <title>TCSII | Markdown Previewer </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>                                <!-- the react library -->
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>                           <!-- the react DOM -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>                               <!-- enables babel so Javascript can be used in the browser -->
+    <style>
+        #previewer {
+            height: 650px;
+            width: 600px;
+            margin: auto;
+            padding: 5px;
+            background-color: blue;
+        }
+
+        #editor {
+            height: 300px;
+            width: 90%;
+            border: 3px solid yellow;
+            padding: 20px;
+        }
+
+        #preview {
+            height: 300px;
+            color: white;
+            background-color: green;
+        }
+
+        @media (max-width: 650px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .normal-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="center">
+        <nav id="top-nav">
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="center" id="main">
+        <h2>Markdown Previewer</h2>
+        <br>
+        <div id="drop">
+            <!-- the HTML element that the React is rendered to -->
+        </div>
+        <br>
+    </main>
+
+    <footer id="footer" class="center">
+        <nav id="bottom-nav">
+            <a href="../index.html">Home</a>
+        </nav>
+        <p>Copyright &copy; 2020-2023 Timothy Stockton</p>
+        <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
+    </footer>
+
+    <script type="text/babel">
+        class Previewer extends React.Component {
+            state = {                           /* use state to track problem and display */
+                display: 0,
+            }
+
+        handleClick = (e) => {          /* what happens when a button is pushed */
+        }
+            render () {         // what is being rendered
+                return (
+                    <div id="previewer">
+                        <textarea id="editor">input</textarea>
+                        <div id="preview">output</div>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Previewer />, document.getElementById("drop"));       /* choose where to render to */
+    </script>
+
+</body>
+
+</html>

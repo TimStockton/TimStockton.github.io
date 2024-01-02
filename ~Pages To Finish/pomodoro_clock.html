@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>                                <!-- the react library -->
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>                           <!-- the react DOM -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>                               <!-- enables babel so Javascript can be used in the browser -->
+        <title>Pomodoro Clock</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <style>
+            #pomodoro {
+                width: 200px;
+                margin: auto;
+                padding: 5px;
+                background-color: yellow;
+                display: grid;
+            }
+            @media (max-width: 650px) {
+                .mobile-menu {
+                    display: block;
+                }
+                .normal-menu {
+                    display: none;
+                }
+            }
+        </style>
+        <header id="header">
+        </header>
+        <main id="main">
+            <!--[if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+
+            <div id="drop">
+            </div>
+
+            <script type="text/babel">
+                class Pomodoro extends React.Component {
+                    state = {                           /* use state to track problem and display */
+			cycle: "session",
+			timerRunning: false,
+                        breakLength: 5,
+			sessionLength: 25,
+			minutes: 25,
+			seconds: 0
+                    }
+
+                    handleReset = () => {    		      /* RESET */
+		        //stop any running timers
+		        this.setState({
+			    cycle: "session",
+			    timerRunning: false,
+                            breakLength: 5,
+                            sessionLength: 25,
+			    minutes: 25,
+			    seconds: 0
+                        });
+		    }
+		    handleBreakDec = () => {   		      /* BREAK DOWN */
+			if (this.state.breakLength > 1) {
+			    this.setState({
+                            breakLength: this.state.breakLength - 1
+                            });
+			}
+		    }
+		    handleBreakInc = () => {  		      /* BREAK UP */
+			if (this.state.breakLength < 60) {
+			    this.setState({
+                            breakLength: this.state.breakLength + 1
+                            });
+			}
+		    }
+		    handleSessionDec = () => {  		      /* SESSION DOWN */
+			if (this.state.breakLength > 1) {
+			    this.setState({
+                            breakLength: this.state.sessionLength - 1
+                            });
+			}
+		    }
+		    handleSessionInc = () => {  		      /* SESSION UP */
+			if (this.state.breakLength < 60) {
+			    this.setState({
+                            breakLength: this.state.sessionLength + 1
+                            });
+			}
+		    }
+		    handleSS = () => {   		      /* START - STOP */
+
+		    }
+                }
+                    render () {         // what is being rendered
+                        return (
+                            <div id="pomodoro">
+                                <div id="break-label">Break Length</div>
+                                <button id="break-decrement" onClick={this.handleBreakDec}>-</button>
+                                <div id="break-length">{this.state.breakLength}</div>
+                                <button id="break-increment" onClick={this.handleBreakInc}>+</button>
+                                <div id="session-label">Session Length</div>
+                                <button id="session-decrement" onClick={this.handleSessionDec}>-</button>
+                                <div id="session-length">{this.state.sessionLength}</div>
+                                <button id="session-increment" onClick={this.handleSessionInc}>+</button>
+                                <div id="timer-label">Session</div>
+                                <div id="time-left">{this.state.minutesLeft + ":" + this.state.secondsLeft}</div>
+                                <button id="start_stop" onClick={this.handleSS}>S/S</button>
+                                <button id="reset" onClick={this.handleReset}>R</button>
+                            </div>
+                        )
+                    }
+                ReactDOM.render(<Pomodoro />, document.getElementById("drop"));       /* choose where to render to */
+            </script>
+        </main>
+        <footer id="footer">
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Timothy C Stockton II -->
+
+<head>
+    <title>TCSII | Quote Machine </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>                                <!-- the react library -->
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>                           <!-- the react DOM -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>                               <!-- enables babel so Javascript can be used in the browser -->
+    <style>
+        #quote-box {
+            width: 400px;
+            height: 250px;
+            margin: auto;
+            padding: 5px;
+            color: white;
+            background-color: purple;
+            display: grid;
+        }
+
+        .tweet {
+            color: yellow;
+        }
+
+        @media (max-width: 650px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .normal-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="center">
+        <nav id="top-nav">
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="center" id="main">
+        <h2>Random Quote Machine</h2>
+        <br>
+        <div id="quote-box">
+            <!-- the HTML element that the React is rendered to -->
+        </div>
+        <br>
+    </main>
+
+    <footer id="footer" class="center">
+        <nav id="bottom-nav">
+            <a href="../index.html">Home</a>
+        </nav>
+        <p>Copyright &copy; 2020-2023 Timothy Stockton</p>
+        <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
+    </footer>
+
+    <script type="text/babel">
+        class QuoteBox extends React.Component {
+            state = {                           /* use state to track the current quote */
+                quote: '"Everything tends to happen all at once."',
+                author: '-Unknown'
+            }
+            handleNewQuoteClick = (e) => {          /* set state to random quote from array */
+                let quoteArr = [
+                    ['"The only thing to do with good advice is to pass it on. It is never of any use to oneself."', "-Oscar Wilde"],
+                    ['"If people are good only because they fear punishment, and hope for reward, then we are a sorry lot indeed."', "-Albert Einstein"],
+                    ['"The ultimate tragedy is not the oppression and cruelty by the bad people but the silence over that by the good people."', "-Martin Luther King, Jr."],
+                    ['"Every man is guilty of all the good he did not do."', "-Voltaire"],
+                    ['"I can live for two months on a good compliment."', "-Mark Twain"]
+                ]
+
+                function getRandomInt(max) {
+                    return Math.floor(Math.random() * Math.floor(max));
+                }
+
+                let randomNum = getRandomInt(quoteArr.length)
+                let quote = quoteArr[randomNum][0]
+                let author = quoteArr[randomNum][1]
+
+                this.setState({
+                    quote: quote,
+                    author: author
+                });
+            }
+            render () {         // what is being rendered
+                return (
+                    <div id="quote-box">
+                    <div id="text"> {this.state.quote} </div> <br/> <br/>
+                    <div id="author"> {this.state.author} </div> <br/> <br/>
+                    <button id="new-quote" onClick={this.handleNewQuoteClick}>New Quote</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<QuoteBox />, document.getElementById("quote-box"));       /* choose where to render to */
+    </script>
+
+</body>
+
+</html>

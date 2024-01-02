@@ -1,0 +1,168 @@
+/* keeps wide column in correct area */
+* {
+    box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    min-height: 500px;
+}
+
+/* column for nav */
+.left {
+    width: 24%;
+}
+
+/* column for content */
+.wide {
+    width: 76%;
+    background-color: #181818;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+h1 {
+    font-family: Segoe UI, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #ffffff;
+    margin: 8px;
+}
+
+h2 {
+    font-family: Segoe UI, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    color: #ffffff;
+}
+
+h3 {
+    font-family: Segoe UI, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.75em;
+    color: #ffffff;
+}
+
+h4 {
+    font-family: Segoe UI, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+h5 {
+    font-family: Segoe UI, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #ffffff;
+}
+
+h6 {
+    font-family: Segoe UI, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+p {
+    font-family: Verdana, Geneva, sans-serif;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none; /* remove underline */
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+    a:link {
+        color: #33ddff; /* blue */
+    }
+
+    a:hover {
+        color: #99ff33; /* green */
+    }
+
+    a:active {
+        color: #ffffff; /* green */
+    }
+
+    a:visited {
+        color: #ee33ff; /* purple */
+    }
+
+.center {
+    text-align: center;
+}
+
+#left-nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+    #left-nav a {
+        display: block;
+    }
+
+#bottom-nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+    #bottom-nav a {
+        margin: 2px;
+    }
+
+body {
+    background-color: #000000;
+}
+
+header {
+    background-color: #00004d;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+    font-size: 1em;
+    width: 100%;
+    line-height: 1em;
+    background-color: #33334d;
+}
+
+main {
+    background-color: #000000;
+    width: 100%;
+}
+
+footer {
+    background-color: #000000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 75%;
+    width: 100%;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
