@@ -4,45 +4,62 @@
 <!-- Timothy C Stockton II -->
 
 <head>
-    <title>TCSII | Markdown Previewer </title>
+    <title>TCSII | Markdown Previewer</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="CSS/layout.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="icon" href="Images/favicon.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>                                <!-- the react library -->
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>                           <!-- the react DOM -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>                               <!-- enables babel so Javascript can be used in the browser -->
+    <!-- enables converting markdown to html -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- sanitizes user input to avoid XSS -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2"></script>
+    <!-- the react library -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- the react DOM -->
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- enables babel so Javascript can be used in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
         #previewer {
-            height: 650px;
-            width: 600px;
+            max-width: 800px;
             margin: auto;
-            padding: 5px;
-            background-color: blue;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         #editor {
             height: 300px;
-            width: 90%;
-            border: 3px solid yellow;
-            padding: 20px;
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
         }
 
         #preview {
             height: 300px;
-            color: white;
-            background-color: green;
+            color: #333;
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        #previewer button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
         }
 
         @media (max-width: 650px) {
-            .mobile-menu {
-                display: block;
+            #editor {
+                height: 200px;
             }
 
-            .normal-menu {
-                display: none;
+            #preview {
+                height: 200px;
             }
         }
     </style>
@@ -58,11 +75,9 @@
 
     <main class="center" id="main">
         <h2>Markdown Previewer</h2>
-        <br>
         <div id="drop">
             <!-- the HTML element that the React is rendered to -->
         </div>
-        <br>
     </main>
 
     <footer id="footer" class="center">
@@ -75,23 +90,40 @@
 
     <script type="text/babel">
         class Previewer extends React.Component {
-            state = {                           /* use state to track problem and display */
-                display: 0,
+            state = {
+                editorContent: "Input your Markdown here", // default text
+                previewContent: "", // converted HTML content
             }
-
-        handleClick = (e) => {          /* what happens when a button is pushed */
-        }
-            render () {         // what is being rendered
+    
+            handleChange = (e) => {
+                this.setState({
+                    editorContent: e.target.value,
+                    previewContent: this.convertToHtml(e.target.value),
+                });
+            }
+    
+            convertToHtml = (markdown) => {
+                const rawHtml = window.marked(markdown);  // Access marked from the global scope
+                const sanitizedHtml = DOMPurify.sanitize(rawHtml);
+                return sanitizedHtml;
+            }
+    
+            render() {
                 return (
                     <div id="previewer">
-                        <textarea id="editor">input</textarea>
-                        <div id="preview">output</div>
+                        <textarea
+                            id="editor"
+                            defaultValue={this.state.editorContent}
+                            onChange={this.handleChange}
+                        />
+                        <div id="preview" dangerouslySetInnerHTML={{ __html: this.state.previewContent }} />
                     </div>
                 )
             }
         }
-        ReactDOM.render(<Previewer />, document.getElementById("drop"));       /* choose where to render to */
+        ReactDOM.render(<Previewer />, document.getElementById("drop"));
     </script>
+    
 
 </body>
 
