@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Timothy C Stockton II -->
+
+<head>
+    <title>TCSII | JavaScript Calculator </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="center">
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="center" id="main">
+        <h2>JavaScript Calculator</h2>
+        <form name="Calc">
+            <table border="3" bgcolor="gray" align="center">
+                <tr>
+                    <td align="center" colspan="4">Calculator</td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="4"><input type="text" name="Display" value="0" style="text-align:right;font-size:18px;font-weight:bold;" maxlength="15"></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="button" style="width:40px;" value="<-" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="C" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="+/-" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="%" onclick="Compute(this.value);" /></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="button" style="width:40px;" value="7" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="8" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="9" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="/" onclick="Compute(this.value);" /></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="button" style="width:40px;" value="4" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="5" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="6" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="*" onclick="Compute(this.value);" /></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="button" style="width:40px;" value="1" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="2" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="3" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="-" onclick="Compute(this.value);" /></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="button" style="width:40px;" value="0" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="." onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="=" onclick="Compute(this.value);" /></td>
+                    <td align="center"><input type="button" style="width:40px;" value="+" onclick="Compute(this.value);" /></td>
+                </tr>
+            </table>
+        </form>
+        <br>
+    </main>
+
+    <footer id="footer" class="center">
+        <nav id="bottom-nav">
+            <a href="../index.html">Home</a>
+        </nav>
+        <p>Copyright &copy; 2020-2023 Timothy Stockton</p>
+        <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
+    </footer>
+
+    <script language="JavaScript">
+        function Compute(key) {
+            d = document.Calc.Display.value;
+
+            if (key == "C") { //clear
+                document.Calc.Display.value = 0;
+                return;
+            }
+
+            if (key == "<-") { //backspace
+                var len = d.length - 1;
+                if (len == 0) document.Calc.Display.value = 0;
+                else document.Calc.Display.value = d.substr(0, len);
+                return;
+            }
+
+            if (key == "+/-") { //change sign
+                document.Calc.Display.value = -d;
+                return;
+            }
+
+            if (key == "=") { //evaluate
+                document.Calc.Display.value = eval(d.replace(/%/, "/100.0"));
+                return
+            }
+
+            if (d == 0) { // if the display shows "0"
+                document.Calc.Display.value = key; // set it to the value of key
+            }
+            else { // otherwise
+                document.Calc.Display.value = d + key; // concatenate the key
+            }
+        }
+    </script>
+
+</body>
+
+</html>

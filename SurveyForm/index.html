@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Timothy C Stockton II -->
+
+<head>
+    <title>TCSII | Survey </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        #survey-form {
+            background-color: gray;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Bordered form */
+        form {
+            border: 3px solid #f1f1f1;
+            width: 50%;
+        }
+
+        @media (max-width: 650px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .normal-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="center">
+        <nav id="top-nav">
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="center" id="main">
+        <div class="center">
+            <h2 id="title">Feedback Survey</h2>
+            <p id="description">Tell me your thoughts:</p>
+            <br>
+            <form id="survey-form">
+                <label id="name-label">Name:<input required id="name" type="text" placeholder="First Last"></label>
+                <br>
+                <label id="email-label">Email:<input required id="email" type="email" placeholder="youremail@email.com"></label>
+                <br>
+                <label id="number-label">Age: <input required id="number" type="number" min=5 max=99 placeholder="ex: 25"></label>
+                <br>
+                <p>How much do you like the site?</p>
+                <select id="dropdown">
+                    <option value="min">Not At All</option>
+                    <option value="med">A Little</option>
+                    <option value="max">A Lot</option>
+                </select>
+                <br>
+                <p>Which languages do you know?</p>
+                <label><input required type="checkbox" name"know" value="HTML"> HTML</label>
+                <label><input required type="checkbox" name"know" value="JavaScript"> JavaScript</label>
+                <label><input required type="checkbox" name"know" value="C++"> C++</label>
+                <label><input required type="checkbox" name"know" value="Python"> Python</label>
+                <label><input required type="checkbox" name"know" value="Other"> Other</label>
+                <br>
+                <p>Which language is your favorite?</p>
+                <label><input required type="radio" name="favorite" value="HTML"> HTML</label>
+                <label><input required type="radio" name="favorite" value="JavaScript"> JavaScript</label>
+                <label><input required type="radio" name="favorite" value="C++"> C++</label>
+                <label><input required type="radio" name="favorite" value="Python"> Python</label>
+                <label><input required type="radio" name="favorite" value="Other"> Other</label>
+                <br>
+                <br>
+                <label for="comments">Additional comments:</label>
+                <br>
+                <textarea id="comments" name="comments" rows="8" cols="40">Got more to share? I care.</textarea>
+                <br>
+                <br>
+                <button id="submit" type="submit">Submit Form</button>
+            </form>
+        </div>
+        <br>
+    </main>
+
+    <footer id="footer" class="center">
+        <nav id="bottom-nav">
+            <a href="../index.html">Home</a>
+        </nav>
+        <p>Copyright &copy; 2020-2023 Timothy Stockton</p>
+        <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
+    </footer>
+
+    <script>
+    </script>
+
+</body>
+
+</html>

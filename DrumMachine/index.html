@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Timothy C Stockton II -->
+
+<head>
+    <title>TCSII | Drum Machine </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>                                <!-- the react library -->
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>                           <!-- the react DOM -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>                               <!-- enables babel so Javascript can be used in the browser -->
+    <style>
+        #drum-machine {
+            width: 160px;
+            margin: auto;
+            padding: 5px;
+            background-color: orange;
+            display: grid;
+        }
+
+        .display {
+            margin: auto;
+            width: 70%;
+            border: 3px solid green;
+            padding: 20px;
+            grid-area: 1 / 1 / 2 / 4;
+        }
+
+        .drum-pad {
+        }
+
+        @media (max-width: 650px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .normal-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="center">
+        <nav>
+            <a href="../index.html">Home</a>&nbsp;
+            <a href="../Login/index.html">Login</a>&nbsp;
+            <a href="https://pandemica.online" target="blank">Pandemica Online</a>&nbsp;
+            <a href="../JavaScriptCalculator/index.html">JavaScript Calculator</a>&nbsp;
+            <a href="../TemperatureConverter/index.html">Temperature Converter</a>&nbsp;
+            <a href="../ProductDiscount/index.html">Product Discount</a>&nbsp;
+            <a href="../FutureValue/index.php">Future Value</a>&nbsp;
+            <a href="../MPGCalculator/index.html">MPG Calculator</a>&nbsp;
+            <a href="../RandomQuoteMachine/index.html">Random Quote Machine</a>&nbsp;
+            <a href="index.html">Drum Machine</a>&nbsp;
+            <a href="../MarkdownPreviewer/index.html">Markdown Previewer</a>&nbsp;
+            <a href="../SurveyForm/index.html">Survey</a>
+        </nav>
+    </header>
+
+    <main class="center" id="main">
+        <div class="center">
+            <h2>Drum Machine</h2>
+        </div>
+        <br>
+        <div id="drop">
+            <!-- the HTML element that the React is rendered to -->
+        </div>
+        <br>
+    </main>
+
+    <footer id="footer" class="center">
+        <nav id="bottom-nav">
+            <a href="../index.html">Home</a>&nbsp;
+            <a href="../Login/index.html">Login</a>&nbsp;
+            <a href="https://pandemica.online" target="blank">Pandemica Online</a>&nbsp;
+            <a href="../JavaScriptCalculator/index.html">JavaScript Calculator</a>&nbsp;
+            <a href="../TemperatureConverter/index.html">Temperature Converter</a>&nbsp;
+            <a href="index.html">Product Discount</a>&nbsp;
+            <a href="../FutureValue/index.php">Future Value</a>&nbsp;
+            <a href="../MPGCalculator/index.html">MPG Calculator</a>&nbsp;
+            <a href="../RandomQuoteMachine/index.html">Random Quote Machine</a>&nbsp;
+            <a href="../DrumMachine/index.html">Drum Machine</a>&nbsp;
+            <a href="../MarkdownPreviewer/index.html">Markdown Previewer</a>&nbsp;
+            <a href="../SurveyForm/index.html">Survey</a>
+        </nav>
+        <p>Copyright &copy; 2020-2023 Timothy Stockton</p>
+        <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
+    </footer>
+
+    <script type="text/babel">
+        class DrumMachine extends React.Component {
+            state = {                           /* use state to track problem and display */
+                display: "",
+            }
+
+        handleClick = (e) => {          /* what happens when a button is pushed */
+        }
+            render () {         // what is being rendered
+                return (
+                    <div id="drum-machine">
+                        <div id="display" class="display">{this.state.display}</div>
+                        <button id="one" class="drum-pad" onClick={this.handleClick}> <audio id="Q" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> Q </button>
+                        <button id="two" class="drum-pad" onClick={this.handleClick}> <audio id="W" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> W </button>
+                        <button id="three" class="drum-pad" onClick={this.handleClick}> <audio id="E" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> E </button>
+                        <button id="four" class="drum-pad" onClick={this.handleClick}> <audio id="A" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> A </button>
+                        <button id="five" class="drum-pad" onClick={this.handleClick}> <audio id="S" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> S </button>
+                        <button id="six" class="drum-pad" onClick={this.handleClick}> <audio id="D" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> D </button>
+                        <button id="seven" class="drum-pad" onClick={this.handleClick}> <audio id="Z" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> Z </button>
+                        <button id="eight" class="drum-pad" onClick={this.handleClick}> <audio id="X" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> X </button>
+                        <button id="nine" class="drum-pad" onClick={this.handleClick}> <audio id="C" class="clip" src="/media/examples/t-rex-roar.mp3"></audio> C </button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<DrumMachine />, document.getElementById("drop"));       /* choose where to render to */
+    </script>
+
+</body>
+
+</html>
