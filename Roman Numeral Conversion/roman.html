@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roman Numeral Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Roman Numeral Converter</h1>
+  <label for="numInput">Enter a Number or Roman Numeral:</label>
+  <input type="text" id="numInput" placeholder="e.g., IV or 4">
+
+  <button onclick="convert()">Convert</button>
+
+  <div id="result"></div>
+
+  <script>
+    function convert() {
+      var input = document.getElementById("numInput").value;
+      var resultElement = document.getElementById("result");
+
+      // Check if the input is a Roman numeral
+      var romanRegex = /^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
+      if (romanRegex.test(input.toUpperCase())) {
+        var arabicNumeral = convertToArabic(input.toUpperCase());
+        resultElement.innerText = "Arabic Numeral: " + arabicNumeral;
+      } else {
+        // Assume it's an Arabic numeral
+        var romanNumeral = convertToRoman(parseInt(input, 10));
+        resultElement.innerText = "Roman Numeral: " + romanNumeral;
+      }
+    }
+
+    function convertToArabic(romanInput) {
+        var romanNumerals = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+        var arabicValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+
+        var result = 0;
+        for (var i = 0; i < romanNumerals.length; i++) {
+            while (romanInput.indexOf(romanNumerals[i]) === 0) {
+            result += arabicValues[i];
+            romanInput = romanInput.replace(romanNumerals[i], "");
+            }
+        }
+        return result;
+    }
+
+
+    function convertToRoman(num) {
+        var tempNum = num;
+        var answer = [];
+        var count = 0;
+
+        function four() {
+            answer.pop();
+            answer.pop();
+            answer.pop();
+        }
+
+        while (tempNum >= 1000) {
+            tempNum -= 1000;
+            answer.push("M");
+        }
+
+        while (tempNum >= 900) {
+            tempNum -= 900;
+            answer.push("CM");
+        }
+
+        while (tempNum >= 500) {
+            tempNum -= 500;
+            answer.push("D");
+        }
+
+        while (tempNum >= 400) {
+            tempNum -= 400;
+            answer.push("CD");
+        }
+
+        while (tempNum >= 100) {
+            tempNum -= 100;
+            answer.push("C");
+            count++;
+            if (count == 4) {
+            four();
+            answer.push("D");
+            }
+        }
+
+        while (tempNum >= 90) {
+            tempNum -= 90;
+            answer.push("XC");
+        }
+
+        while (tempNum >= 50) {
+            tempNum -= 50;
+            answer.push("L");
+        }
+
+        count = 0;
+        while (tempNum >= 40) {
+            tempNum -= 40;
+            answer.push("XL");
+        }
+
+        while (tempNum >= 10) {
+            tempNum -= 10;
+            answer.push("X");
+            count++;
+            if (count == 4) {
+            four();
+            answer.push("L");
+            }
+        }
+
+        while (tempNum >= 9) {
+            tempNum -= 9;
+            answer.push("IX");
+        }
+
+        while (tempNum >= 5) {
+            tempNum -= 5;
+            answer.push("V");
+        }
+
+        count = 0;
+        while (tempNum >= 4) {
+            tempNum -= 4;
+            answer.push("IV");
+        }
+
+        while (tempNum >= 1) {
+            tempNum -= 1;
+            answer.push("I");
+            count++;
+            if (count == 4) {
+            four();
+            answer.push("V");
+            }
+        }
+
+        return answer.join('');
+    }
+
+  </script>
+
+</body>
+</html>

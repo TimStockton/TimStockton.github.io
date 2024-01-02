@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3 Bar Chart</title>
+  <!-- Include D3 library -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    /* Add your custom styles here if needed */
+    .bar:hover {
+      fill: orange;
+    }
+
+    #tooltip {
+      position: absolute;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Container for the chart -->
+<div id="chartContainer">
+  <div id="tooltip" data-date=""></div>
+</div>
+
+<script>
+  // Load JSON data from a separate file
+  d3.json("GDP-data.json").then(function(jsonData) {
+
+    // Set up the chart dimensions
+    const width = 800;
+    const height = 400;
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+
+    // Create the SVG container
+    const svg = d3.select("#chartContainer")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Extracting relevant data for the chart
+    const dates = jsonData.data.map(entry => entry[0]);
+    const values = jsonData.data.map(entry => entry[1]);
+
+    // Create X and Y scales
+    const xScale = d3.scaleBand()
+      .domain(dates)
+      .range([0, width])
+      .padding(0.1);
+
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(values)])
+      .range([height, 0]);
+
+    // Create X and Y axes
+    const xAxis = d3.axisBottom(xScale).tickClass("tick");
+    const yAxis = d3.axisLeft(yScale).tickClass("tick");
+
+    // Append X and Y axes to the chart
+    svg.append("g")
+      .attr("id", "x-axis")
+      .attr("transform", `translate(0, ${height})`)
+      .call(xAxis);
+
+    svg.append("g")
+      .attr("id", "y-axis")
+      .call(yAxis);
+
+    // Create bars
+    svg.selectAll(".bar")
+      .data(jsonData.data)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("data-date", entry => entry[0])
+      .attr("data-gdp", entry => entry[1])
+      .attr("x", entry => xScale(entry[0]))
+      .attr("y", entry => yScale(entry[1]))
+      .attr("width", xScale.bandwidth())
+      .attr("height", entry => height - yScale(entry[1]))
+      .on("mouseover", handleMouseOver)
+      .on("mouseout", handleMouseOut);
+
+    // Tooltip functions
+    function handleMouseOver(d) {
+      const tooltip = d3.select("#tooltip");
+      tooltip.html(`Date: ${d[0]}<br>GDP: ${d[1]}`)
+        .attr("data-date", d[0])
+        .style("display", "block");
+    }
+
+    function handleMouseOut() {
+      d3.select("#tooltip").style("display", "none");
+    }
+
+  }).catch(function(error) {
+    console.error("Error loading the data:", error);
+  });
+</script>
+
+</body>
+</html>

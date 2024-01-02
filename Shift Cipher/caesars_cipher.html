@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROT13 Encoder/Decoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            text-align: center;
+            display: block;
+        }
+
+        input, button, p {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>ROT13 Encoder/Decoder</h2>
+        <input type="text" id="inputText" placeholder="Enter text...">
+        <button onclick="transformText()">Transform</button>
+        <p id="outputText"></p>
+
+        <script>
+            function rot13(str) {
+                var tempArr = str.split("");
+                var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
+                                'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+                var answer = [];
+                var regex = new RegExp(/\w/);
+
+                function unshiftedLetter(letter) {
+                    return letter.toUpperCase() === tempArr[i].toUpperCase();
+                }
+
+                for (var i = 0; i < tempArr.length; i++) {
+                    if (tempArr[i].match(regex)) {
+                        var index = alphabet.findIndex(unshiftedLetter);
+                        var trueIndex = (index - 13);
+                        if (trueIndex < 0) {trueIndex += 26}
+                        answer.push(alphabet[trueIndex]);
+                    } else {
+                        answer.push(tempArr[i]);
+                    }
+                }
+
+                return answer.join("");
+            }
+
+            function transformText() {
+                var inputText = document.getElementById("inputText").value;
+                var outputText = rot13(inputText);
+                document.getElementById("outputText").innerText = "Transformed Text: " + outputText;
+            }
+        </script>
+    </div>
+</body>
+</html>
