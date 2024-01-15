@@ -15,63 +15,118 @@
 
 <body>
 
-    <header id="header" class="center">
+    <header class="center">
         <div>
-            <h1>Timothy Stockton's Web Portfolio</h1>
+            <h1>Timothy Stockton</h1>
+            <h3>Artist and Software Engineer</h3>
+            <p>I'm a creative and self-motivated professional with a desire to learn and a fine-tuned attention to detail.</p>
         </div>
+        <nav>
+            <a href="https://www.linkedin.com/in/timothy-stockton" target="blank">LinkedIn</a>&nbsp;
+            <a href="https://github.com/Fenwig5" target="blank">GitHub</a>&nbsp;
+        </nav>
     </header>
 
+    <!-- Main Categories: about, experience, projects, writing, music -->
+
     <main class="center" id="main">
-        <div class="row">
-            <div class="column left">
-                <nav id="left-nav">
-                    <a href="index.html">Home</a>&nbsp;
-                    <a href="https://psidemica.com" target="blank">Psidemica.com</a>&nbsp;
-                    <a href="https://pandemica.online" target="blank">Pandemica.online</a>&nbsp;
+
+        <div id="about">
+            <h2>About</h2>
+            <br>
+            <p>My programming journey began in 2019 with <a href="https://www.freecodecamp.org/" target="blank">Free Code Camp</a>, and now I have a bachelors degree in computer science from <a href="https://www.keene.edu/" target="blank">Keene State College</a>. I'm passionate about the internet and understanding complex systems, and I love to create.</p>
+            <br>
+            <p>Currently, I am building a full-stack application with React, Tailwind, ASP.NET, C#, RESTful APIs, and Docker in order to become more familiar with these technologies and concepts. I strive to constantly learn and improve so I can truly be my best.</p>
+            <br>
+            <p>When I'm not programming, I like to produce electronic bass music, DJ, make 3D animations, play video games, and watch shows.</p>
+        </div>
+
+        <div id="experience">
+            <h2>Experience</h2>
+            <br>
+            <div class="job-position">
+                <p>Jun 2023 - Aug 2023</p>
+                <h3>Software Engineering intern - Pillar4 Media</h3>
+                <p>Built interactive front-end components using JavaScript and React. Made Python API scripts to retrieve GA3 and GA4 analytics data. Worked on a web crawler and load tester. Agile workflow.</p>
+                <p>CSS, HTML, JavaScript, Python, React, Notion</p>
+            </div>
+            <br>
+            <div class="job-position">
+                <p>Sep 2020 - Sep 2023</p>
+                <h3>Software Engineer - Keene State College</h3>
+                <h4>Paid Student Research Project</h4>
+                <p>Built a Flask web application called Owl Assist Information System (OAIS) that integrated with Dialogflow for natural language processing, was accesible through Google Assistant, and was hosted on AWS. Constructed Python web scrapers using Beautiful Soup and Selenium. Trained and led a team of five while writing documentation, adding features, and maintaining the GitHub repository.</p>
+                <!-- <a href="https://kscequinox.com/2021/04/say-hi-to-the-new-owl-assist/">The Equinox: April 14, 2021</a>
+                <a href="https://www.keene.edu/news/stories/detail/students-create-owl-assist-chatbot-using-artificial-intelligence/">
+                <a href="https://www.youtube.com/watch?v=GgMXuNEhgD0">Equinox Video Interview: April 29, 2021</a> -->
+                <p>Flask, CSS, HTML, JavaScript, JQuery, AJAX, Python, Dialogflow, Google Cloud, AWS, SQLite, Trello</p>
+            </div>
+        </div>
+
+        <div id="projects">
+            <h2>Projects</h2>
+            <br>
+            <div class="project-group">
+                <h3>Calculators and Converters</h3>
+                <p>
                     <a href="JavaScriptCalculator/index.html">JavaScript Calculator</a>&nbsp;
                     <a href="TemperatureConverter/index.html">Temperature Converter</a>&nbsp;
                     <a href="Shift Cipher/caesars_cipher.html">Shift Cipher</a>&nbsp;
-                    <a href="Roman Numeral Conversion/roman.html">Roman Numeral Converter</a>&nbsp;
+                    <a href="Roman Numeral Conversion/roman.html">Roman Numeral Converter</a>
+                </p>
+                <p>CSS, HTML, JavaScript, React</p>
+            </div>
+            <div class="project-group">
+                <h3>Other</h3>
+                <p>
                     <a href="RandomQuoteMachine/index.html">Random Quote Machine</a>&nbsp;
                     <a href="DrumMachine/index.html">Drum Machine</a>&nbsp;
                     <a href="MarkdownPreviewer/index.html">Markdown Previewer</a>&nbsp;
-                    <a href="SurveyForm/index.html">Survey</a>&nbsp;
-                    <a href="Papers and Posters/Internet by Country TCSII.pdf">Internet Effect</a>&nbsp;
-                    <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf">Particulate Matter Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf">Solar Wind Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Planaria Analysis TCSII.pdf">Planaria Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf">Breast Cancer Classification</a>&nbsp;
-                </nav>
+                    <a href="SurveyForm/index.html">Survey</a>
+                </p>
+                <p>CSS, HTML, JavaScript, React</p>
             </div>
-            <div class="column wide">
-                <p>Hello World!</p>
-                <br>
-                <p>I am Timothy Stockton, and I enjoy web development, machine learning, software engineering, data analysis, and all things music. This staticly hosted website is a portfolio made to display some of my work.</p>
-                <br>
-                <p>Some of these projects were made for <a href="https://www.freecodecamp.org/electronictech55" target="blank">Free Code Camp</a> where I completed three certifications: Responsive Web Design, JavaScript Algorithms & Data Structures, and Front End Development Libraries. Others were made while I was at <a href="https://www.keene.edu/" target="blank">Keene State College</a> which is where I got my Bachelors degree (Computer Science major and a Mathematics minor).</p>
-                <br>
-                <p>The first full-stack application I worked on was a college research project called Owl Assist Information System (OAIS). I was one of the first 3 student devs, and I assisted in it's construction and was tasked with maintaining it. It is a Flask application that utilizes web scrapers, Dialog Flow, Google Cloud, AWS, Selenium, and more. This project was my first real exposure to Git and Github as well as Trello. There were a couple articles written about OAIS. The first was in <a href="https://kscequinox.com/2021/04/say-hi-to-the-new-owl-assist/">The Equinox: April 14, 2021</a>, and the second was in <a href="https://www.keene.edu/news/stories/detail/students-create-owl-assist-chatbot-using-artificial-intelligence/">KSC Stories: April 16, 2021</a>. There was also an <a href="https://www.youtube.com/watch?v=GgMXuNEhgD0">Equinox Video Interview: April 29, 2021</a>. Ultimately, I left the project because the school cut funding.</p>
+        </div>
+
+        <div id="writing">
+            <h2>Writing</h2>
+            <br>
+            <div class="writing-project">
+                <h3>The Internet Effect</h3>
+                <p>A Python data analysis poster that looks at country statistics like population, internet users, GDP, and more. Interesting data points and relationships are discussed with supporting visuals.</p>
+                <a href="Papers and Posters/Internet by Country TCSII.pdf">Poster</a>
+                <p>Python, Pandas, Seaborn</p>
+            </div>
+            <br>
+            <div class="writing-project">
+                <h3>Breast Cancer Classification</h3>
+                <p>A comparative analysis of machine learning preprocessing techniques, including feature selection and feature extraction, and their impact on different models. </p>
+                <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf">Paper</a>
+                <p>Python</p>
+            </div>
+            <!-- <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf">Particulate Matter Analysis</a>&nbsp;
+            <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf">Solar Wind Analysis</a>&nbsp;
+            <a href="Papers and Posters/Planaria Analysis TCSII.pdf">Planaria Analysis</a> -->
+        </div>
+
+        <div id="music">
+            <h2>Music</h2>
+            <br>
+            <div class="music-site">
+                <h3>Psidemica</h3>
+                <p>Music is what keeps me going, life would be so dull without it. I have been producing since 2013, and love being able to artistically express myself. I have made a website for my main alias, <a href="https://psidemica.com">Psidemica</a>, that is hosted by my domain provider. I'm currently finishing up my debut album and it's music videos, as well as building a merch shop for the site.</p>
+                <p>CSS, HTML, JavaScript, PHP</p>
+            </div>
+            <br>
+            <div class="music-site">
+                <h3>Pandemica</h3>
+                <p>This website is for my previous alias, <a href="https://pandemica.online">Pandemica</a>, and is self-hosted on my personal server via Apache. Since I changed names, in order to secure a trademark, this is more of an archival site.</p>
+                <p>CSS, HTML, Apache, Ubuntu</p>
             </div>
         </div>
     </main>
 
     <footer id="footer" class="center">
-        <nav id="bottom-nav">
-            <a href="index.html">Home</a>&nbsp;
-            <a href="https://psidemica.com" target="blank">Psidemica.com</a>&nbsp;
-            <a href="https://pandemica.online" target="blank">Pandemica.online</a>&nbsp;
-            <a href="JavaScriptCalculator/index.html">JavaScript Calculator</a>&nbsp;
-            <a href="TemperatureConverter/index.html">Temperature Converter</a>&nbsp;
-            <a href="RandomQuoteMachine/index.html">Random Quote Machine</a>&nbsp;
-            <a href="DrumMachine/index.html">Drum Machine</a>&nbsp;
-            <a href="MarkdownPreviewer/index.html">Markdown Previewer</a>&nbsp;
-            <a href="SurveyForm/index.html">Survey</a>&nbsp;
-            <a href="Papers and Posters/Internet by Country TCSII.pdf">Internet Effect</a>&nbsp;
-            <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf">Particulate Matter Analysis</a>&nbsp;
-            <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf">Solar Wind Analysis</a>&nbsp;
-            <a href="Papers and Posters/Planaria Analysis TCSII.pdf">Planaria Analysis</a>&nbsp;
-            <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf">Breast Cancer Classification</a>&nbsp;
-        </nav>
         <p>Copyright &copy; 2020-2024 Timothy Stockton</p>
         <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
     </footer>
