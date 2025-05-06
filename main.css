@@ -8,18 +8,19 @@
     float: left;
     width: 33.33%;
     padding: 10px;
-    min-height: 500px;
+    min-height: 1000px;
 }
 
 /* column for nav */
 .left {
-    width: 24%;
+    width: 15%;
 }
 
 /* column for content */
 .wide {
-    width: 76%;
+    width: 85%;
     background-color: #181818;
+    text-align: left;
 }
 
 /* Clear floats after the columns */
@@ -88,21 +89,21 @@ a {
     font-size: 1em;
 }
 
-    a:link {
-        color: #33ddff; /* blue */
-    }
+a:link {
+    color: #33ddff; /* blue */
+}
 
-    a:hover {
-        color: #99ff33; /* green */
-    }
+a:hover {
+    color: #99ff33; /* green */
+}
 
-    a:active {
-        color: #ffffff; /* green */
-    }
+a:active {
+    color: #ffffff; /* green */
+}
 
-    a:visited {
-        color: #ee33ff; /* purple */
-    }
+a:visited {
+    color: #ee33ff; /* purple */
+}
 
 .center {
     text-align: center;
@@ -113,18 +114,18 @@ a {
     padding-bottom: 10px;
 }
 
-    #left-nav a {
-        display: block;
-    }
+#left-nav a {
+    display: block;
+}
 
 #bottom-nav {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-    #bottom-nav a {
-        margin: 2px;
-    }
+#bottom-nav a {
+    margin: 2px;
+}
 
 body {
     background-color: #000000;
