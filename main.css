@@ -3,33 +3,6 @@
     box-sizing: border-box;
 }
 
-/* Create three equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    min-height: 1000px;
-}
-
-/* column for nav */
-.left {
-    width: 15%;
-}
-
-/* column for content */
-.wide {
-    width: 85%;
-    background-color: #181818;
-    text-align: left;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 /* Add a hover effect for buttons */
 button:hover {
     opacity: 0.8;
@@ -40,7 +13,8 @@ h1 {
     font-weight: bold;
     font-size: 2.5em;
     color: #ffffff;
-    margin: 8px;
+    margin: 0px;
+    padding: 16px;
 }
 
 h2 {
@@ -48,6 +22,8 @@ h2 {
     font-weight: bold;
     font-size: 2em;
     color: #ffffff;
+    margin: 0px;
+    padding: 8px;
 }
 
 h3 {
@@ -133,8 +109,6 @@ body {
 
 header {
     background-color: #00004d;
-    padding-top: 20px;
-    padding-bottom: 10px;
     width: 100%;
 }
 
@@ -149,14 +123,12 @@ nav {
 }
 
 main {
-    background-color: #000000;
+    background-color: #181818;
     width: 100%;
 }
 
 footer {
     background-color: #000000;
-    padding-top: 10px;
-    padding-bottom: 10px;
     font-size: 75%;
     width: 100%;
 }

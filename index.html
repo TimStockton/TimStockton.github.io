@@ -4,179 +4,437 @@
 <!-- Timothy C Stockton II -->
 
 <head>
-    <title>TCSII | Home </title>
+    <title>TCSII</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="Assets/favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        .converter-col {
+            display: flex;
+            flex-flow: column wrap;
+            gap: 8px;
+            width: 60%;
+            justify-content: space-between;
+            align-items: center;
+            background: #33334d;
+            border-radius: 10px;
+            padding: 10px 10px;
+            margin: auto;
+        }
+
+        /* Change style for inputs on  small screens */
+        @media screen and (max-width: 1300px) {
+            .converter-row {
+                display: block;
+            }
+        }
     </style>
 </head>
 
 <body>
     
     <header class="center">
-        <div>
-            <h1>Timothy Stockton</h1>
-            <h3>Artist and Programmer</h3>
-            <p>I'm a creative and self-motivated professional with a fine-tuned attention to detail and a passion for learning.</p>
-        </div>
-        <nav>
+        <h1 style="margin:0; padding:0; padding-top: 8px;">Timothy Stockton</h1>
+        <h4 style="color:lightgreen; margin:0; padding:0;">Artist and Programmer</h3>
+        <p style="margin:0; padding:8px; padding-bottom: 16px;;">I'm a creative and self-motivated professional with a fine-tuned attention to detail and a passion for learning.</p>
+        <nav style="background-color: black;;">
             <a href="https://www.linkedin.com/in/timothy-stockton" target="blank">LinkedIn</a>&nbsp;&nbsp;&nbsp;
             <a href="https://github.com/TimStockton" target="blank">GitHub</a>
         </nav>
     </header>
 
     <main class="center" id="main">
-        <div class="row">
-            <div class="column left">
-                <nav id="left-nav">
-                    <a href="index.html">Home</a>&nbsp;
-                    <a href="https://psidemica.com" target="blank">Psidemica.com</a>&nbsp;
-                    <a href="JavaScriptCalculator/index.html">JavaScript Calculator</a>&nbsp;
-                    <a href="TemperatureConverter/index.html">Temperature Converter</a>&nbsp;
-                    <a href="Shift Cipher/caesars_cipher.html">Shift Cipher</a>&nbsp;
-                    <a href="Roman Numeral Conversion/roman.html">Roman Numeral Converter</a>&nbsp;
-                    <a href="RandomQuoteMachine/index.html">Random Quote Machine</a>&nbsp;
-                    <a href="DrumMachine/index.html">Drum Machine</a>&nbsp;
-                    <a href="MarkdownPreviewer/index.html">Markdown Previewer</a>&nbsp;
-                    <a href="SurveyForm/index.html">Survey</a>&nbsp;
-                    <a href="Papers and Posters/Internet by Country TCSII.pdf">Internet Effect</a>&nbsp;
-                    <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf">Particulate Matter Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf">Solar Wind Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Planaria Analysis TCSII.pdf">Planaria Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf">Breast Cancer Classification</a>&nbsp;
-                </nav>
-            </div>
-            <div class="column wide">
-                <div id="about">
-                    <h2>About</h2>
-                    <p>I enjoy web development, machine learning, software engineering, data analysis, and all things music. I'm passionate about the internet and understanding complex systems, and I love to create. When I'm not programming, I like to produce electronic bass music, DJ, make 3D animations, play video games, hike, lift weights, and write blog posts.</p>
-                    <p>My programming journey began in 2019 learning the basics with <a href="https://www.freecodecamp.org/electronictech55" target="blank">Free Code Camp</a> where I completed three certifications: Responsive Web Design, JavaScript Algorithms & Data Structures, and Front End Development Libraries. Some of the projects on this site were made as part of the certificate curriculum.</p>
-                    <p>Now I have a bachelors degree in computer science from <a href="https://www.keene.edu/" target="blank">Keene State College</a> (graduated in 2023 with double honors, Computer Science major and Mathematics minor). The first full-stack application I worked on was a college research project called Owl Assist Information System (OAIS). I was one of the first 3 student devs, and I assisted in it's construction and was tasked with maintaining it. It is a Flask application that utilizes web scrapers, Dialog Flow, Google Cloud, AWS, Selenium, and more. This project was my first real exposure to Git and Github as well as Trello. There were a couple articles written about OAIS. The first was in <a href="https://kscequinox.com/2021/04/say-hi-to-the-new-owl-assist/">The Equinox: April 14, 2021</a>, and the second was in <a href="https://www.keene.edu/news/stories/detail/students-create-owl-assist-chatbot-using-artificial-intelligence/">KSC Stories: April 16, 2021</a>. There was also an <a href="https://www.youtube.com/watch?v=GgMXuNEhgD0">Equinox Video Interview: April 29, 2021</a>.</p>
-                    <p>Currently, I am working on personal projects and challenges to learn more and keep my skills sharp.</p>
-                    <br>
-                </div>
-                <hr>
-                <div id="experience">
-                    <h2>Experience</h2>
-                    <div class="job-position">
-                        <p style="font-size: small; margin-bottom: -25px;">Mar 2024 - Nov 2024</p>
-                        <h3>Software Engineer - Sun West Mortgage Company, Inc.</h3>
-                        <p>Designed system components, implemented business-requested changes, resolved production bugs, and documented changes while managing database interactions and leveraging AWS as needed.</p>
-                        <p>Enhanced and maintained Tomcat-hosted Java web applications by developing new features and resolving issues to improve system performance and user experience across multiple repositories.</p>
-                        <p>Developed key components of a React application, including secure login functionality and user redirection, delivering a seamless in-house solution integrated with existing architecture.</p>
-                        <p>Collaborated with cross-functional teams, ensuring alignment on project objectives while managing diverse tasks in an agile environment.</p>
-                        <p>Java, React.js, REST APIs, Linux, CSS, HTML, JavaScript, AWS, SQL, Jira, SSH, Putty, S3, Postman</p>
-                    </div>
-                    <br>
-                    <div class="job-position">
-                        <p style="font-size: small; margin-bottom: -25px;">Jun 2023 - Aug 2023</p>
-                        <h3>Software Engineering Intern - Pillar4 Media</h3>
-                        <p>Developed clean and interactive HTML components using JavaScript and React, significantly enhancing the user experience through intuitive and responsive design.</p>
-                        <p>Created Python scripts to efficiently retrieve millions of GA3/GA4 records via API calls, improving the team's data analysis capabilities and efficiency.</p>
-                        <p>Engaged in sprint planning and daily standup meetings, contributing to organizing and facilitating team development, ensuring smooth workflow and effective collaboration in a fast-paced environment.</p>
-                        <p>Provided substantial contributions to both front-end development and back-end data analysis, demonstrating versatility and a deep understanding of software engineering principles.</p>
-                        <p>CSS, HTML, JavaScript, Python, React.js, Notion</p>
-                    </div>
-                    <br>
-                    <div class="job-position">
-                        <p style="font-size: small; margin-bottom: -25px;">Sep 2020 - Sep 2023</p>
-                        <h3>Software Engineering Student Researcher - Keene State College</h3>
-                        <p>Built a sophisticated virtual assistant using Flask, Dialogflow, Google Cloud, and AWS, integrated with Google Assistant, providing fast and automated responses to college-related queries from students, parents, and faculty, demonstrating innovation in educational technology.</p>
-                        <p>Constructed efficient Python web scrapers using Beautiful Soup and Selenium to gather comprehensive college information, showcasing proficiency in data collection and automation.</p>
-                        <p>Led and trained a team of five, focusing on writing comprehensive documentation, adding features, and maintaining the code repository, ensuring project continuity and team skill development.</p>
-                        <p>Utilized JavaScript, jQuery, AJAX, and webhooks to enhance site functionality and implement Create, Read, Update, Delete (CRUD) operations, displaying a strong command of web development technologies.</p>
-                        <p>Flask, CSS, HTML, JavaScript, JQuery, AJAX, Python, Dialogflow, Google Cloud, AWS, SQLite, Trello</p>
-                    </div>
-                    <br>
-                </div>
-                <hr>
-                <div id="projects">
-                    <h2>Projects</h2>
-                    <div class="project-group">
-                        <h3>Calculators and Converters</h3>
-                        <p>
-                            <a href="JavaScriptCalculator/index.html">JavaScript Calculator</a>&nbsp;
-                            <a href="TemperatureConverter/index.html">Temperature Converter</a>&nbsp;
-                            <a href="Shift Cipher/caesars_cipher.html">Shift Cipher</a>&nbsp;
-                            <a href="Roman Numeral Conversion/roman.html">Roman Numeral Converter</a>
-                        </p>
-                        <p>CSS, HTML, JavaScript, React</p>
-                    </div>
-                    <div class="project-group">
-                        <h3>Other</h3>
-                        <p>
-                            <a href="RandomQuoteMachine/index.html">Random Quote Machine</a>&nbsp;
-                            <a href="DrumMachine/index.html">Drum Machine</a>&nbsp;
-                            <a href="MarkdownPreviewer/index.html">Markdown Previewer</a>&nbsp;
-                            <a href="SurveyForm/index.html">Survey</a>
-                        </p>
-                        <p>CSS, HTML, JavaScript, React</p>
-                    </div>
-                    <div class="project-group">
-                        <h3>Lifebook</h3>
-                        <p>In the beginning of 2024, I started building a full-stack application that would render different customizeable HUBs set up by the user. For example, one HUB would revolve around note taking and another would be focused on news sources. The goal of this project was to work with and better learn popular technologies I had limited exposure to.</p>
-                        <p>React, Tailwind, ASP.NET, C#, RESTful APIs, Docker</p>
-                    </div>
-                    <div class="project-group">
-                        <h3>Psidemica</h3>
-                        <p>Music is what keeps me going, life would be so dull without it. I have been producing since 2013, and love being able to artistically express myself. I have made several artist portfolio websites, the most recent being for my main alias, <a href="https://psidemica.com">Psidemica</a>. This site in particular has been under construction since the end of 2023. I started with a textbook example of a PHP application, and modified it beyond recognition. I built and customized an e-commerce shop as well as a members activity hub. This website is the most feature-rich project I have made myself from start to finish. I have also used Python to build automated tests.</p>
-                        <p>CSS, HTML, JavaScript, PHP, Python</p>
-                    </div>
-                    <div class="project-group">
-                        <h3>Pandemica</h3>
-                        <p>From 2021 to 2023 I self-hosted an older artist portfolio site on my personal home server via Apache. I have since changed names in order to secure trademarks, so this became more of an archival site before being taken down entirely (I will eventually add these older songs etc to a secret archive page on the Psidemica website).</p>
-                        <p>CSS, HTML, Apache, Ubuntu</p>
-                    </div>
-                    <br>
-                </div>
-                <hr>
-                <div id="writing">
-                    <h2>Writing</h2>
-                    <div class="writing-project">
-                        <h3>The Internet Effect</h3>
-                        <p>A Python data analysis poster that looks at country statistics like population, internet users, GDP, and more. Interesting data points and relationships are discussed with supporting visuals.</p>
-                        <a href="Papers and Posters/Internet by Country TCSII.pdf">Poster</a>
-                        <p>Python, Pandas, Seaborn</p>
-                    </div>
-                    <br>
-                    <div class="writing-project">
-                        <h3>Breast Cancer Classification</h3>
-                        <p>A comparative analysis of machine learning preprocessing techniques, including feature selection and feature extraction, and their impact on different models. </p>
-                        <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf">Paper</a>
-                        <p>Python</p>
-                    </div>
-                    <!-- <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf">Particulate Matter Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf">Solar Wind Analysis</a>&nbsp;
-                    <a href="Papers and Posters/Planaria Analysis TCSII.pdf">Planaria Analysis</a> -->
-                </div>
-            </div>
+        <div id="about" style="width:90%; margin:auto;">
+            <br>
+            <h2 style="color:lightblue;">About Me</h2>
+            <img src="Assets/HEADSHOT_1.png" style="width: 25%; min-width:150px; max-width:300px; height:auto; float:left; margin:16px;">
+            <p style="float:none; padding:8px;">I enjoy web development, machine learning, software engineering, data analysis, and all things music. I'm passionate about the internet and understanding complex systems, and I love to create. I'm also a veteran, having honorably served five years in the Marine Corps, so I like to stay active. When I'm not programming or producing electronic bass music, I like to DJ, make 3D animations, play video games, run, hike, lift weights, and write blog posts.</p>
+            <p style="padding:8px;">My programming journey began in 2019 learning the basics with <a href="https://www.freecodecamp.org/electronictech55" target="blank">Free Code Camp</a> where I completed three certifications: Responsive Web Design, JavaScript Algorithms & Data Structures, and Front End Development Libraries. Some of the projects on this site were made as part of the certificate curriculum.</p>
+            <p style="padding:8px;">Now I have a bachelors degree from <a href="https://www.keene.edu/" target="blank">Keene State College</a> (graduated in 2023 with double honors, Computer Science major and Mathematics minor). The first full-stack application I worked on was a college research project called Owl Assist Information System (OAIS). I was one of the first 3 student devs, and I assisted in it's construction and was tasked with maintaining it. It is a Flask application that utilizes web scrapers, Dialog Flow, Google Cloud, AWS, Selenium, and more. This project was my first real exposure to Git and Github as well as Trello. There were a couple articles written about OAIS. The first was in <a href="https://kscequinox.com/2021/04/say-hi-to-the-new-owl-assist/">The Equinox: April 14, 2021</a>, and the second was in <a href="https://www.keene.edu/news/stories/detail/students-create-owl-assist-chatbot-using-artificial-intelligence/">KSC Stories: April 16, 2021</a>. There was also an <a href="https://www.youtube.com/watch?v=GgMXuNEhgD0">Equinox Video Interview: April 29, 2021</a>.</p>
+            <p style="padding:8px;">I have since worked professionally as a full-stack software engineer (you can view my job experience <a href="#experience">here</a>), interacting with incredibly large code repositories and databases. I am particularly drawn to back-end software engineering, and I am currently taking courses to prepare for the AWS Solutions Architect and CompTIA Linux+ certification exams. I am also working on improving this portfolio.</p>
         </div>
+        <h2 style="color:lightblue;">Research (Machine Learning & Data Analysis)</h2>
+        <div id="preprocessing-techniques" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf" target="blank"><img src="Assets/research_paper_1_thumbnail.png" style="width: 20%; min-width:150px; max-width:300px; height:auto; float:right; margin:16px;"></a>
+            <p style="float:none; padding:8px;">I co-authored a published research paper providing a comparative analysis of machine learning preprocessing techniques, including feature selection and feature extraction, and their impact on different machine learning models. We used a breast cancer dataset and Python (pandas, numpy, seaborn, matplotlib, sklearn), applying the CFS, RFE, LDA, PCA preprocessing techniques then training logistic regression, decision tree, random forest, support vector machine, neural network, and XGBoost tree models.</p>
+            <p style="padding:8px;">I provide free access to the research paper <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf" target="blank">here</a>.</p>
+            <p style="padding:8px;">It's published <a href="https://link.springer.com/chapter/10.1007/978-3-031-57870-0_24" target="blank">here</a> as part of Lecture Notes on Data Engineering and Communications Technologies (LNDECT,volume 201).</p>
+        </div>
+        <br>
+        <div id="internet-effect" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <a href="Papers and Posters/Internet by Country TCSII.pdf" target="_blank"><img src="Assets/research_poster_1_thumbnail.png" style="width: 20%; min-width:150px; max-width:300px; height:auto; float:left; margin:16px;"></a>
+            <p style="float:none; padding:8px;">I independantly researched the ratio between population and internet users by country, and investigated it's correlation with social and economic factors. I used Python (pandas, seaborn) for this, and created a data analysis poster breaking down my findings. Interesting data points and relationships of statistics like GDP, life expectancy, social support, corruption, and freedom are discussed with supporting visuals.</p>
+            <p style="padding:8px;"> I provide free access to the poster <a href="Papers and Posters/Internet by Country TCSII.pdf" target="_blank">here</a>.</p>
+        </div>
+        <br>
+        <div id="analysis-papers" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <p style="float:none; padding:8px;">I also wrote a few short analysis papers on <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf" target="_blank">Particulate Matter</a>, <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf" target="_blank">Solar Wind</a>, and <a href="Papers and Posters/Planaria Analysis TCSII.pdf" target="_blank">Planaria</a> using Python.</p>
+            <section style="display:flex; flex-flow: row wrap; justify-content: space-around;">
+                <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf" target="_blank"><img src="Assets/analysis_1_thumbnail.png" style="width: 150px; height:auto; float:left; margin:16px;"></a>
+                <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf" target="_blank"><img src="Assets/analysis_2_thumbnail.png" style="width: 150px; height:auto; float:left; margin:16px;"></a>
+                <a href="Papers and Posters/Planaria Analysis TCSII.pdf" target="_blank"><img src="Assets/analysis_3_thumbnail.png" style="width: 150px; height:auto; float:left; margin:16px;"></a>
+            </section>
+        </div>
+        <br>
+        <h2 style="color:lightblue;">Projects (Software Engineering & Web Development)</h2>
+        <div id="psidemica-website" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <a href="https://psidemica.com" target="blank"><img src="Assets/psidemica_website_thumbnail.png" style="width: 20%; min-width:150px; max-width:300px; height:auto; float:right; margin:16px;"></a>
+            <p style="float:none; padding:8px;">My largest personal software engineering project by far is the Psidemica website. This site is an artist portfolio for my own music and animations, but it is incredibly feature rich. It contains an entire e-commerce platform as well as a members activity hub with accounts, messaging, games, a quote generator, and an interface for a NASA API. I also built admin tools and functionality. I used CSS, HTML, and JavaScript as is expected of a website, and I used PHP for the structure and logic. I also built automated testing tools using Python. I coded all of it from scratch, starting with a textbook example and modifying it beyond recognition, and did not use any frameworks. Music is what keeps me going, life would be so dull without it. I have been producing since 2013, and love being able to artistically express myself.</p>
+            <p style="padding:8px;">You can access the Psidemica artist portfolio website <a href="https://psidemica.com" target="blank">here</a>.</p>
+        </div>
+        <br>
+        <div id="javascript-calculator" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <form name="Calc" style="width: 20%; min-width:150px; max-width:300px; height:auto; float:left; margin:16px;">
+                <table border="3" bgcolor="gray" align="center">
+                    <tr>
+                        <td align="center" colspan="4">Calculator</td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="4"><input type="text" name="Display" value="0" style="text-align:right;font-size:18px;font-weight:bold;" maxlength="15"></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="button" style="width:40px;" value="<-" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="C" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="+/-" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="%" onclick="Compute(this.value);" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="button" style="width:40px;" value="7" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="8" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="9" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="/" onclick="Compute(this.value);" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="button" style="width:40px;" value="4" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="5" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="6" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="*" onclick="Compute(this.value);" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="button" style="width:40px;" value="1" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="2" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="3" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="-" onclick="Compute(this.value);" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="button" style="width:40px;" value="0" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="." onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="=" onclick="Compute(this.value);" /></td>
+                        <td align="center"><input type="button" style="width:40px;" value="+" onclick="Compute(this.value);" /></td>
+                    </tr>
+                </table>
+            </form>
+            <p style="float:none; padding:8px;">I created a basic calculator using JavaScript.</p>
+            <p style="padding:8px;">It doesn't handle engineering notation or any advanced features like trigonometry, logarithms, and exponentiation. I might add these one day though.</p>
+            <p style="padding:8px;">I plan on restyling it so it isn't so grey and sad.</p>
+        </div>
+        <div id="temperature-converter" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <div class="converter-col" style="width: 20%; min-width:150px; max-width:300px; height:auto; float:right; margin:16px;">
+                <label style="color:white;">Fahrenheit</label>
+                <input type="number" id="fahrenheit" placeholder="enter degrees Fahrenheit" style="color: black;">
+                <label style="color:white;">Celsius</label>
+                <input type="number" id="celsius" placeholder="enter degrees Celcius" style="color: black;">
+                <label style="color:white;">Kelvin</label>
+                <input type="number" id="kelvin" placeholder="enter degrees Kelvin" style="color: black;">
+            </div>
+            <p style="float:none; padding:8px;">I created a simple temperature converter that outputs values in Fahrenheit, Celcius, and Kelvin based on the value you enter.</p>
+            <p style="padding:8px;">The outputs are tied together, and change as soon as one of the values change. Conversion is automatic.</p>
+        </div>
+        <br>
+        <div id="shift-cipher" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <p style="float:none; padding:8px;">I created a ROT13 Encoder/Decoder, also known as a Shift Cipher or a Caesars Cipher. It takes the input, and shifts each letter provided by thirteen places in the alphabet. It can be used to send and recieve basic secret messages.</p>
+            <section class="converter-col">
+                <input type="text" id="inputText" placeholder="Enter text...">
+                <button onclick="transformText()">Transform</button>
+                <p style="padding:8px;" id="outputText"></p>
+            </section>
+        </div>
+        <br>
+        <div id="roman-numeral" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+            <p style="float:none; padding:8px;">I created a Roman numeral converter too. You can enter a Roman numeral, and it will output the Arabic number equivalent. You can also enter an Arabic number, and it will output the Roman numeral equivalent. Comes in handy for the Superbowl.</p>
+            <section class="converter-col">
+                <label for="numInput" style="color:white;">Enter a Number or Roman Numeral:</label>
+                <input type="text" id="numInput" placeholder="e.g., IV or 4">
+                <button onclick="convert()">Convert</button>
+                <div id="result" style="color:white;"></div>
+            </section>
+        </div>
+        <p style="padding:8px;">I have also worked on a drum machine, markdown previewer, and survey form. Currently, I need to move the code and restyle them so they can fit into this portfolio.</p>
+        <p>From 2021 to 2023 I self-hosted an older artist portfolio site on my personal home server using Apache and Ubuntu. I have since changed names in order to secure trademarks, so this became more of an archival site before being taken down entirely (I will eventually add these older songs etc to a secret archive page on the Psidemica website).</p>
+        <p>In the beginning of 2024, I started building a full-stack application using React, Tailwind, ASP.NET, C#, RESTful APIs, and Docker that would render different customizeable HUBs set up by the user. For example, one HUB would revolve around note taking and another would be focused on unbiased news sources. The goal of this project was to work with and better learn popular technologies I had limited exposure to. I plan to continue it further one day.</p>
+        <br>
+        <div id="experience">
+            <h2 style="color:lightblue;">Job Experience</h2>
+            <br>
+            <section style="display:flex; flex-flow:row wrap; justify-content: center;">
+                <div class="job-position" style="width:50%; min-width:360px; border: solid white 1px;">
+                    <p style="font-size: small; margin-bottom: -25px;">Mar 2024 - Nov 2024</p>
+                    <h3 style="padding: 0px 16px;">Software Engineer - Sun West Mortgage Company, Inc.</h3>
+                    <p style="padding: 0px 16px;">Designed system components, implemented business-requested changes, resolved production bugs, and documented changes while managing database interactions and leveraging AWS as needed.</p>
+                    <p style="padding: 0px 16px;">Enhanced and maintained Tomcat-hosted Java web applications by developing new features and resolving issues to improve system performance and user experience across multiple repositories.</p>
+                    <p style="padding: 0px 16px;">Developed key components of a React application, including secure login functionality and user redirection, delivering a seamless in-house solution integrated with existing architecture.</p>
+                    <p style="padding: 0px 16px;">Collaborated with cross-functional teams, ensuring alignment on project objectives while managing diverse tasks in an agile environment.</p>
+                    <p style="color:lightgreen; padding: 0px 16px;">Java, React.js, REST APIs, Linux, CSS, HTML, JavaScript, AWS, SQL, Jira, SSH, Putty, Postman</p>
+                </div>
+                <div class="job-position" style="width:50%; min-width:360px; border: solid white 1px;">
+                    <p style="font-size: small; margin-bottom: -25px;">Jun 2023 - Aug 2023</p>
+                    <h3 style="padding: 0px 16px;">Software Engineering Intern - Pillar4 Media</h3>
+                    <p style="padding: 0px 16px;">Developed clean and interactive HTML components using JavaScript and React, significantly enhancing the user experience through intuitive and responsive design.</p>
+                    <p style="padding: 0px 16px;">Created Python scripts to efficiently retrieve millions of GA3/GA4 records via API calls, improving the team's data analysis capabilities and efficiency.</p>
+                    <p style="padding: 0px 16px;">Engaged in sprint planning and daily standup meetings, contributing to organizing and facilitating team development, ensuring smooth workflow and effective collaboration in a fast-paced environment.</p>
+                    <p style="padding: 0px 16px;">Provided substantial contributions to both front-end development and back-end data analysis, demonstrating versatility and a deep understanding of software engineering principles.</p>
+                    <p style="color:lightgreen; padding: 0px 16px;">CSS, HTML, JavaScript, Python, React.js, Notion</p>
+                </div>
+                <div class="job-position" style="width:50%; min-width:360px; border: solid white 1px;">
+                    <p style="font-size: small; margin-bottom: -25px;">Sep 2020 - Sep 2023</p>
+                    <h3 style="padding: 0px 16px;">Software Engineering Student Researcher - Keene State College</h3>
+                    <p style="padding: 0px 16px;">Built a sophisticated virtual assistant using Flask, Dialogflow, Google Cloud, and AWS, integrated with Google Assistant, providing fast and automated responses to college-related queries from students, parents, and faculty, demonstrating innovation in educational technology.</p>
+                    <p style="padding: 0px 16px;">Constructed efficient Python web scrapers using Beautiful Soup and Selenium to gather comprehensive college information, showcasing proficiency in data collection and automation.</p>
+                    <p style="padding: 0px 16px;">Led and trained a team of five, focusing on writing comprehensive documentation, adding features, and maintaining the code repository, ensuring project continuity and team skill development.</p>
+                    <p style="padding: 0px 16px;">Utilized JavaScript, jQuery, AJAX, and webhooks to enhance site functionality and implement Create, Read, Update, Delete (CRUD) operations, displaying a strong command of web development technologies.</p>
+                    <p style="color:lightgreen; padding: 0px 16px;">Flask, CSS, HTML, JavaScript, JQuery, AJAX, Python, Dialogflow, Google Cloud, AWS, SQLite, Trello</p>
+                </div>
+            </section>
+        </div>
+        <br>
     </main>
 
     <footer id="footer" class="center">
-        <nav id="bottom-nav">
-            <a href="index.html">Home</a>&nbsp;
-            <a href="https://psidemica.com" target="blank">Psidemica.com</a>&nbsp;
-            <a href="https://pandemica.online" target="blank">Pandemica.online</a>&nbsp;
-            <a href="JavaScriptCalculator/index.html">JavaScript Calculator</a>&nbsp;
-            <a href="TemperatureConverter/index.html">Temperature Converter</a>&nbsp;
-            <a href="RandomQuoteMachine/index.html">Random Quote Machine</a>&nbsp;
-            <a href="DrumMachine/index.html">Drum Machine</a>&nbsp;
-            <a href="MarkdownPreviewer/index.html">Markdown Previewer</a>&nbsp;
-            <a href="SurveyForm/index.html">Survey</a>&nbsp;
-            <a href="Papers and Posters/Internet by Country TCSII.pdf">Internet Effect</a>&nbsp;
-            <a href="Papers and Posters/Particulate Matter Analysis TCSII.pdf">Particulate Matter Analysis</a>&nbsp;
-            <a href="Papers and Posters/Solar Wind Analysis TCSII.pdf">Solar Wind Analysis</a>&nbsp;
-            <a href="Papers and Posters/Planaria Analysis TCSII.pdf">Planaria Analysis</a>&nbsp;
-            <a href="Papers and Posters/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf">Breast Cancer Classification</a>&nbsp;
-        </nav>
         <p>Copyright &copy; 2020-2025 Timothy Stockton</p>
         <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
     </footer>
 
+    <!-- calculator -->
+    <script language="JavaScript">
+        function Compute(key) {
+            d = document.Calc.Display.value;
+
+            if (key == "C") { //clear
+                document.Calc.Display.value = 0;
+                return;
+            }
+
+            if (key == "<-") { //backspace
+                var len = d.length - 1;
+                if (len == 0) document.Calc.Display.value = 0;
+                else document.Calc.Display.value = d.substr(0, len);
+                return;
+            }
+
+            if (key == "+/-") { //change sign
+                document.Calc.Display.value = -d;
+                return;
+            }
+
+            if (key == "=") { //evaluate
+                document.Calc.Display.value = eval(d.replace(/%/, "/100.0"));
+                return
+            }
+
+            if (d == 0) { // if the display shows "0"
+                document.Calc.Display.value = key; // set it to the value of key
+            }
+            else { // otherwise
+                document.Calc.Display.value = d + key; // concatenate the key
+            }
+        }
+    </script>
+
+    <!-- temperature converter -->
     <script>
+        let celsius = document.getElementById('celsius');
+        let fahrenheit = document.getElementById('fahrenheit');
+        let kelvin = document.getElementById('kelvin');
+        celsius.oninput = function () {
+            let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+
+            let k = (parseFloat(celsius.value) + 273.15);
+            kelvin.value = parseFloat(k.toFixed(2));
+        }
+        fahrenheit.oninput = function () {
+            let c = ((parseFloat(
+                fahrenheit.value) - 32) * 5) / 9;
+            celsius.value = parseFloat(c.toFixed(2));
+
+            let k = (parseFloat(
+                fahrenheit.value) - 32) * 5 / 9 + 273.15;
+            kelvin.value = parseFloat(k.toFixed(2));
+        }
+        kelvin.oninput = function () {
+            let f = (parseFloat(
+                kelvin.value) - 273.15) * 9 / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+
+            let c = (parseFloat(kelvin.value) - 273.15);
+            celsius.value = parseFloat(c.toFixed(2));
+        }
+    </script>
+
+    <!-- shift cipher -->
+    <script>
+        function rot13(str) {
+            var tempArr = str.split("");
+            var alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
+                            'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            var answer = [];
+            var regex = new RegExp(/\w/);
+
+            function unshiftedLetter(letter) {
+                return letter.toUpperCase() === tempArr[i].toUpperCase();
+            }
+
+            for (var i = 0; i < tempArr.length; i++) {
+                if (tempArr[i].match(regex)) {
+                    var index = alphabet.findIndex(unshiftedLetter);
+                    var trueIndex = (index - 13);
+                    if (trueIndex < 0) {trueIndex += 26}
+                    answer.push(alphabet[trueIndex]);
+                } else {
+                    answer.push(tempArr[i]);
+                }
+            }
+
+            return answer.join("");
+        }
+
+        function transformText() {
+            var inputText = document.getElementById("inputText").value;
+            var outputText = rot13(inputText);
+            document.getElementById("outputText").innerText = "Transformed Text: " + outputText;
+        }
+    </script>
+
+    <!-- roman numeral converter -->
+    <script>
+        function convert() {
+        var input = document.getElementById("numInput").value;
+        var resultElement = document.getElementById("result");
+
+        // Check if the input is a Roman numeral
+        var romanRegex = /^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
+        if (romanRegex.test(input.toUpperCase())) {
+            var arabicNumeral = convertToArabic(input.toUpperCase());
+            resultElement.innerText = "Arabic Numeral: " + arabicNumeral;
+        } else {
+            // Assume it's an Arabic numeral
+            var romanNumeral = convertToRoman(parseInt(input, 10));
+            resultElement.innerText = "Roman Numeral: " + romanNumeral;
+        }
+        }
+
+        function convertToArabic(romanInput) {
+            var romanNumerals = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+            var arabicValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+
+            var result = 0;
+            for (var i = 0; i < romanNumerals.length; i++) {
+                while (romanInput.indexOf(romanNumerals[i]) === 0) {
+                result += arabicValues[i];
+                romanInput = romanInput.replace(romanNumerals[i], "");
+                }
+            }
+            return result;
+        }
+
+
+        function convertToRoman(num) {
+            var tempNum = num;
+            var answer = [];
+            var count = 0;
+
+            function four() {
+                answer.pop();
+                answer.pop();
+                answer.pop();
+            }
+
+            while (tempNum >= 1000) {
+                tempNum -= 1000;
+                answer.push("M");
+            }
+
+            while (tempNum >= 900) {
+                tempNum -= 900;
+                answer.push("CM");
+            }
+
+            while (tempNum >= 500) {
+                tempNum -= 500;
+                answer.push("D");
+            }
+
+            while (tempNum >= 400) {
+                tempNum -= 400;
+                answer.push("CD");
+            }
+
+            while (tempNum >= 100) {
+                tempNum -= 100;
+                answer.push("C");
+                count++;
+                if (count == 4) {
+                four();
+                answer.push("D");
+                }
+            }
+
+            while (tempNum >= 90) {
+                tempNum -= 90;
+                answer.push("XC");
+            }
+
+            while (tempNum >= 50) {
+                tempNum -= 50;
+                answer.push("L");
+            }
+
+            count = 0;
+            while (tempNum >= 40) {
+                tempNum -= 40;
+                answer.push("XL");
+            }
+
+            while (tempNum >= 10) {
+                tempNum -= 10;
+                answer.push("X");
+                count++;
+                if (count == 4) {
+                four();
+                answer.push("L");
+                }
+            }
+
+            while (tempNum >= 9) {
+                tempNum -= 9;
+                answer.push("IX");
+            }
+
+            while (tempNum >= 5) {
+                tempNum -= 5;
+                answer.push("V");
+            }
+
+            count = 0;
+            while (tempNum >= 4) {
+                tempNum -= 4;
+                answer.push("IV");
+            }
+
+            while (tempNum >= 1) {
+                tempNum -= 1;
+                answer.push("I");
+                count++;
+                if (count == 4) {
+                four();
+                answer.push("V");
+                }
+            }
+
+            return answer.join('');
+        }
+
     </script>
 
 </body>
