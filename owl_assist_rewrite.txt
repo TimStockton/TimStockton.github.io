@@ -1,0 +1,96 @@
+Rewritten Portfolio Entry (Owl Assist)
+Owl Assist — AI-Powered University Information System
+
+Type: Research / Production System (Private Repository)
+Tech Stack: Python, Flask, Dialogflow, Google Cloud, AWS, Selenium, BeautifulSoup, JavaScript, jQuery, AJAX, SQLite
+
+Overview
+Owl Assist Information System (OAIS) is an AI-powered virtual assistant designed to provide automated, real-time responses to university-related inquiries. I was one of the first student developers on the project and later took on a key role in maintaining and expanding the system as it evolved into a production tool used by students, faculty, and prospective applicants.
+
+Due to institutional constraints, the source code and live system are not publicly accessible, but I can discuss architecture, design decisions, and implementation details.
+
+Key Features
+
+Conversational AI Integration
+Built and maintained integrations with Dialogflow to interpret and respond to natural language queries
+Enabled automated handling of common university questions (admissions, academics, campus info)
+Dynamic Data Aggregation
+Developed Python-based web scrapers using Selenium and BeautifulSoup
+Collected and normalized data from multiple university sources to keep responses accurate and up-to-date
+Full-Stack Web Application
+Contributed to a Flask-based backend handling request routing, logic, and data processing
+Implemented front-end features using JavaScript, jQuery, and AJAX for seamless user interaction
+Cloud Deployment & Infrastructure
+Worked with both AWS and Google Cloud services to support scalability and reliability
+Helped maintain deployment pipelines and system uptime
+Team Collaboration & Maintenance
+Collaborated in a multi-developer environment using Git and project management tools
+Contributed to ongoing feature development, bug fixes, and system improvements over multiple years
+
+Engineering Highlights
+
+Helped evolve the system from an early prototype into a stable, production-ready application
+Designed data pipelines for scraping, processing, and serving structured information to the chatbot
+Balanced asynchronous data collection with real-time query handling
+Wrote and maintained documentation to support onboarding and long-term project sustainability
+Led and mentored a small team of student developers, ensuring code quality and continuity
+
+Challenges & Solutions
+
+Challenge: Keeping chatbot responses accurate as university information changed frequently
+Solution: Built automated scraping workflows to continuously refresh data from authoritative sources
+Challenge: Integrating multiple cloud services and external APIs into a cohesive system
+Solution: Established clear boundaries between services and standardized communication patterns
+Challenge: Maintaining reliability in a system with many moving parts (scrapers, APIs, chatbot, frontend)
+Solution: Implemented monitoring practices and iterative testing to catch failures early
+
+Impact
+
+Provided automated support for a wide range of university inquiries, reducing manual response workload
+Demonstrated real-world application of AI, cloud infrastructure, and full-stack development
+Served as a long-term, collaborative engineering project with measurable user-facing value
+
+Additional Context
+
+Featured in university publications and media coverage
+Developed as part of a paid academic research initiative
+Source code and live system are private, but technical discussion and diagrams are available upon request
+💡 Why this hits hard
+
+This version:
+
+Makes “private repo” sound normal (because it is)
+Emphasizes real users + real system
+Shows team experience + leadership
+Highlights architecture and data flow, not just tools
+⚡ Optional power-ups (HIGHLY recommended)
+
+Since you can’t show code, you should show thinking instead:
+
+1. Add an architecture diagram
+
+Even something simple like:
+
+User → Frontend → Flask API → Dialogflow
+                          ↘ Scraper Pipeline → Database
+
+Instant credibility boost.
+
+2. Add a “Request Flow” section (this is gold)
+
+Example:
+
+User asks: “What are the application deadlines?”
+
+1. Query sent to Dialogflow
+2. Intent matched to admissions category
+3. Backend retrieves latest scraped data
+4. Response constructed and returned to UI
+
+This makes recruiters go:
+
+“Oh, this person actually understands systems.”
+
+3. Add screenshots (if allowed)
+
+Even partial UI or blurred data is fine.
