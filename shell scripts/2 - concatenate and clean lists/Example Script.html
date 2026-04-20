@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0211)https://alt-5f9c84db7d38a.blackboard.com/bbcswebdav/pid-3430259-dt-content-rid-47562971_1/courses/L3510-11745/example-script.html?one_hash=0B8110C1C248D8586AE30A20A37C2DAD&f_hash=92A21902316C2B7D007C0B9043F2D44F -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example Script for Project 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;  
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+<link rel="stylesheet" href="chrome-extension://ihcjicgdanjaechkgeegckofjjedodee/app/content-style.css"></head>
+<body>
+  <h1>Example Script for Project 2</h1>
+  
+  <p>The following script is very similar to Project 2; however, the major differences are:</p>
+  <ul>
+    <li>It works with a single variable, not the command line arguments</li>
+    <li>The script tests to see if directories exist (not needed for Project 2)</li>
+    <li>For Project 2, each positional parameter can be a special case:
+      <ul>
+        <li>A <code>:</code> at the beginning of a parameter is really <code>.:
+</code></li>        
+        <li>A <code>::</code> in a parameter is really <code>:.:
+</code></li>
+        <li>A <code>:</code> at the end of a parameter is <code>:.</code></li>
+      </ul>
+    </li>
+  </ul>
+  
+  <p>You should run this script and see what happens, then modify it to meet the requirements for Project 2.</p>
+  
+  <p>The tricky part is that <code>A:B :C</code> should become <code>A:B:.:C</code>, but the code below won't handle that case.</p>
+  
+  <pre><code>#!/bin/sh
+
+NP=
+for P in `echo $PATH | sed -e 's/^:/.:/' -e 's/::/:.:/' -e 's/:$/:./' -e 's/:/ /g'`
+    do
+    case $NP in  
+    "")
+        if [ -d "$P" ]
+	    then
+            NP="$P"
+            fi 
+    ;;
+    $P|$P:*|*:$P:*|*:$P)
+        continue
+        ;;
+    *)  
+        if [ -d "$P" ]
+	    then
+            NP="$NP:$P"
+            fi
+        ;;
+        esac
+    done
+echo $NP
+</code></pre>
+
+
+</body></html>

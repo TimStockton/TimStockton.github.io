@@ -1,0 +1,225 @@
+#!/usr/bin/bash
+
+# script name: fix-spaces.sh
+# script author: Timothy Stockton
+# last modified: 20251020
+#
+# this script renames files and directories, replacing spaces with dashes
+# option flags include the following (at least one option is required):
+#    -f : rename files
+#    -d : rename directories
+
+USAGE="$0 -f directory
+$0 -d  directory
+$0 -d -f directory
+
+-f my_rename files 
+-d my_rename directories 
+"
+
+usage ()
+    {
+    echo  "$USAGE"
+    exit 1
+    }
+
+pathname ()
+    {
+    # function provided for the student
+    echo  "${1%/*}"
+    }
+
+basename ()
+    {
+    # function provided for the student
+    echo  "${1##*/}"
+    }
+
+find_dirs ()
+    {
+    # function provided for the student
+    find "$1" -depth -type d -name '* *' -print
+    }
+
+find_files ()
+    {
+    # function provided for the student
+    find "$1" -depth -type f -name '* *' -print
+    }
+
+# rename the file/directory from $1 to $2
+my_rename()
+    {
+    # work only on the base name
+    oldbase=$(basename "$1")
+    newbase=$(basename "$2")
+    oldpath=$(pathname "$1")
+    newpath=$(pathname "$2")
+
+    # if the original basename contains spaces
+    # (only rename if there are spaces)
+    if [[ "$oldbase" == *" "* ]]
+        then
+
+        # check if the directory where $1 resided is writeable
+        if [ ! -w "$oldpath" ]
+            then
+            # if not then report an error
+            echo "ERROR: '$oldpath' is not writable."
+            return 1
+        fi
+
+        # rebuild paths
+        # handle path construction correctly when pathname() returns "."
+        if [ "$oldpath" = "." ]
+            then
+            oldpath=$(pwd)
+        fi
+        if [ "$newpath" = "." ]
+            then
+            newpath=$(pwd)
+        fi
+        old="$oldpath/$oldbase"
+        new="$newpath/$newbase"
+
+        # check if "$2" exists
+        if [ -e "$new" ]
+            then
+            # if it does report an error
+            echo "ERROR: '$new' already exists."
+            return 1
+        else
+            # rename using mv
+            mv "$old" "$new"
+        fi
+        
+        # check exit status of the last executed command (mv)
+        if [ $? -ne 0 ]
+            then
+            echo "ERROR: mv command failed for '$old' to '$new'"
+            return 1
+        fi
+
+    fi
+    }
+
+fix_dirs ()
+    {
+    # get a list of directories with spaces in their names
+    old_directories=$(find_dirs "$1")
+
+    for old_dir in $old_directories
+        do
+        # use sed to replace all spaces with dashes
+        # only replace spaces in the basename, not the pathname
+        new_dir=$(pathname "$old_dir")/$(basename "$old_dir" | sed 's/ /-/g')
+        
+        # if the name were "a b", the new name would be a-b
+        # if the name were "a   b" the new name would be a--b
+
+        # call the rename function
+        my_rename "$old_dir" "$new_dir"
+    done
+    }
+
+fix_files ()
+    {
+    # get a list of files with spaces in their names
+    old_files=$(find_files "$1")
+
+    for old_file in $old_files
+        do
+        # use sed to replace all spaces with dashes
+        # only replace spaces in the basename, not the pathname
+        new_file=$(pathname "$old_file")/$(basename "$old_file" | sed 's/ /-/g')
+        
+        # if the name were "a b", the new name would be a-b
+        # if the name were "a   b" the new name would be a--b
+
+        # call the rename function
+        my_rename "$old_file" "$new_file"
+    done
+    }
+
+WFILE=
+WDIR=
+DIR=
+
+# command called with no args, display usage
+if [ "$#" -eq 0 ]
+   then
+   usage
+fi
+
+# process args: option flags and dir/file
+while [ $# -gt 0 ] 
+    do
+    case $1 in
+    -d)
+        # option match, set flag
+        WDIR=1
+        ;;
+    -f)
+        # option match, set flag
+        WFILE=1
+        ;;
+    -*)
+        # unknown option, display usage
+        usage 
+        ;;
+    *)
+        # non-option arg (directory/file)
+        if [ -d "$1" ]
+            then
+            # exists, assign
+            DIR="$1"
+        else
+            echo  "ERROR: $1 does not exist ..."
+            exit 1
+            fi
+        ;;
+    esac
+    shift
+done
+
+# directory not specified, print a message and exit
+if [ -z "$DIR" ]
+    then
+    echo  "ERROR: directory/file not specified ..."
+    usage
+    exit 1
+fi
+
+# directory specified is current directory, print error and exit
+if [ "$DIR" = "$(pwd)" ]
+    then
+    echo  "ERROR: directory specified is current directory ..."
+    exit 1
+fi
+
+# directory specified is . or .. , print error message and exit
+if [ "$DIR" = "." ] || [ "$DIR" = ".." ]
+    then
+    echo  "ERROR: directory specified is . or .."
+    exit 1
+fi
+
+# both -f and -d are not specified, print message and exit
+if [ -z "$WDIR" ] && [ -z "$WFILE" ]
+    then
+    echo  "ERROR: both -f and -d are not specified ..."
+    usage
+    exit 1
+fi
+
+if [ "$WDIR" -a "$WFILE" ]
+    then
+    fix_files "$DIR"
+    fix_dirs "$DIR"
+elif [ "$WDIR" ]
+    then
+    fix_dirs "$DIR"
+elif [ "$WFILE" ]
+    then
+    fix_files "$DIR"
+fi

@@ -32,9 +32,9 @@ This is my portfolio with projects in the following categories: [v1.0.0]
         javascript  temperature converter
         survey form
         java deadlock monitor
-        python directory mapper? {not in repo yet}
-        c employee pay system {not in repo yet}
-        c++ rolodex {not in repo yet}
+        python directory mapper?
+        c employee pay system
+        c++ rolodex
         psidemica.com (art portfolio, e-commerce shop, members hub)
 
 - [ ] Make a data analysis page/section
@@ -60,19 +60,19 @@ This is my portfolio with projects in the following categories: [v1.0.0]
         java block cypher encrypt and decrypt
 
 - [ ] make a section/page for shell/lab scripts
-        bash user management {not in repo yet}
-        setup docs for owncloud? {not in repo yet}
-        setup doc for external mail routing? {not in repo yet}
-        python music library management script? {not in repo yet}
-        bash audio conversion scripts {not in repo yet}
-        python batch rename {not in repo yet}
-        python playlist map? {not in repo yet}
-        bash executable file locator {not in repo yet}
-        bash list concatenation {not in repo yet}
-        bash file and directory renamer {not in repo yet}
-        bash disk usage warning system {not in repo yet}
-        python decode? {not in repo yet}
+        bash user management
+        setup docs for owncloud?
+        setup doc for external mail routing?
+        python music library management script?
+        bash audio conversion scripts
+        python batch rename
+        python playlist map?
+        bash executable file locator
+        bash list concatenation
+        bash file and directory renamer
+        bash disk usage warning system
+        python decode?
 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] make a setup script for arch linux
+- [ ] store textbook files? (unlisted? legality?)
+- [ ] remove code from education directories (and code archive?) after integrating

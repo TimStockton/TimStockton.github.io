@@ -1,0 +1,119 @@
+the following steps configure an ubuntu server to send mail to the internet
+this is done by relaying email through a public server via credentials
+
+-------------------------
+public email service credentials
+-------------------------
+if using gmail, acquire an application password
+this can be obtained only if 2fa is set up
+allows google to be used with less secure apps
+https://support.google.com/mail/answer/185833?hl=en-GB
+app name: server_email
+pass: sged rtec vdpp dblm
+
+-------------------------
+install server packages (postfix and mailx)
+-------------------------
+postfix is an MTA (mail transfer agent)
+mailx is an MUA (mail user agent), a virtual package provided by mailutils
+
+run the following:
+sudo apt update
+sudo apt install postfix
+
+postfix will ask during install about configuration type
+select 'satellite system', relaying through external SMTP server (gmail)
+
+postfix will ask about the 'mail name'
+this is the domain name appended to local users like root
+for example, root@backstage if backstage is used as the mail name
+
+postfix will ask you to specify the SMTP relay host
+for gmail, use [smtp.gmail.com]:587
+
+these changes can be viewed and adjusted in /etc/postfix/main.cf
+
+now install mailx by running:
+sudo apt install mailutils
+
+-------------------------
+verify and update postfix configuration
+-------------------------
+edit /etc/postfix/main.cf with vim
+ensure the following settings are present:
+
+relayhost = [smtp.your-email-provider.com]:587
+^ where emails will be externally sent, brackets prevent MX lookup
+
+inet_interfaces = loopback-only
+mynetworks = 127.0.0.0/8
+^ only trust connections originating from local machine loopback
+
+smtp_tls_security_level=may
+smtp_tls_CApath=/etc/ssl/certs
+^ gmail requires TLS, may = encryption preferred but not required
+
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+smtp_sasl_tls_security_options = noanonymous
+smtp_use_tls = yes
+^ authentication from this server to gmail (username and app password)
+^ sasl = simple authentication and security layer
+
+-------------------------
+create credentials file
+-------------------------
+this is the file listed by smtp_sasl_psssword_maps=
+
+create the file:
+vim /etc/postfix/sasl_passwd
+
+add the following line, replacing with real username and app password:
+[smtp.gmail.com]:587 yourgmail@gmail.com:APP_PASSWORD
+
+protect the file:
+sudo chmod 600 /etc/postfix/sasl_passwd
+
+generate the hash:
+sudo postmap /etc/postfix/sasl_passwd
+
+-------------------------
+restart postfix and check for issues
+-------------------------
+restart:
+systemctl restart postfix
+
+check for issues:
+tail -f /var/log/mail.log
+
+ctrl+c to return to shell
+
+-------------------------
+test the setup
+-------------------------
+echo "This is a test from my Ubuntu server." | mail -s "Test Email" yourpublicemail@example.com
+
+check /var/log/mail.log if needed
+
+-------------------------
+enable root alias forwarding
+-------------------------
+open the file /etc/aliases
+
+add the following line:
+root: test_local_user, external_account@gmail.com
+
+this forwards root's local mail to a local user and an external gmail
+
+run this to compile /etc/aliases into binary lookup table:
+newaliases
+
+-------------------------
+test forwarding setup
+-------------------------
+send an email to root on your server:
+echo "root mail test" | sudo mail -s "Root Test" root
+
+check test_local_user mailbox:
+mail

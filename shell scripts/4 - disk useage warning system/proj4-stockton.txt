@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# script name: fs_usage_warning
+# script author: Timothy Stockton
+# last modified: 20251020
+#
+# this script checks the disk usage percent of a file system
+# if the usage is too high, an email is sent to the user
+# option flags include the following:
+#    -c : specify the capacity percentage
+# multiple emails can be listed separated by spaces
+
+# default 60% capacity threshold
+THRESHOLD=60
+
+RECIPIENT_1=""
+RECIPIENT_2=""
+SUBJECT="Disk Usage Warning"
+MESSAGE=""
+
+# command called with no args, display usage
+if [ "$#" -eq 0 ]
+    then
+    echo "you must provide an email recipient"
+    exit 1
+fi
+
+# process args: option flags and recipient email(s)
+while [ $# -gt 0 ] 
+    do
+    case $1 in
+    -c)
+        if [ -z "$2" ]
+            then
+            echo "Error: -c requires a capacity value"
+            exit 1
+        fi
+        # option match, set flag
+        THRESHOLD=$2
+        # remove -c and the next arg (threshold value)
+        shift 2
+        continue
+        ;;
+    -*)
+        # unknown option, display usage
+        echo "unknown option '$1'..."
+        exit 1
+        ;;
+    *)
+        # non-option arg (recipient email)
+        if [ -z "$RECIPIENT_1" ]
+            then
+	    RECIPIENT_1="$1"
+        else
+	    RECIPIENT_2="$1"
+        fi
+        ;;
+    esac
+    shift
+done
+
+df -k -t ext4 -t ext2 | awk 'NR>1 {print $5, $6}' | while read usage mountpoint; do
+    # Remove trailing % from usage
+    usage=${usage%\%}
+    
+    # Check usage against threshold  
+    if ((usage >= $THRESHOLD && usage < 90))
+        then
+        MESSAGE="Warning: the file system $mountpoint is above ${THRESHOLD}% used"
+        # send email
+        echo -e "$MESSAGE" | mail -s "$SUBJECT" "$RECIPIENT_1"
+        if [ -n "$RECIPIENT_2" ]
+            then
+            # send second email
+            echo -e "$MESSAGE" | mail -s "$SUBJECT" "$RECIPIENT_2"
+        fi
+    elif ((usage >= 90))
+        then
+        MESSAGE="Warning: the file system $mountpoint is above 90% used"
+        # send email
+        echo -e "$MESSAGE" | mail -s "$SUBJECT" "$RECIPIENT_1"
+        if [ -n "$RECIPIENT_2" ]
+            then
+            # send second email
+            echo -e "$MESSAGE" | mail -s "$SUBJECT" "$RECIPIENT_2"
+        fi
+    fi  
+done

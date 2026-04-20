@@ -1,0 +1,372 @@
+Welcome to the Rolodex Program!
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: list
+
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+Tony Hansen
+Writer
+12 E. St. NY, NY 33333
+555-9999
+
+Alonza Heard
+Mechanic
+123 Anyplace Ave, Malden, MA
+555-5678
+
+Alan Lupine
+Vet
+1 Bigelow Ave., Lawrence, MA 
+555-7654
+
+Fred Milton
+Sales
+12 Freedom Way, Nashua, NH
+555-9981
+
+Seymour Papert
+Lego Professor
+MIT
+555-1111
+
+Jewel Proverb
+Landscaper
+34 Washington St. Waltham, MA
+555-3333
+
+Paul Revere
+Radical Revolutionary
+45 Commonwealth Ave., Boston, MA 
+555-1776
+
+Jen Reyes
+Graphic artist 
+325 Oak Rd, Wilmington, MA
+555-4950
+
+Jon Smyth
+Computer Hardware
+CMU Computer Services, Pittsburgh, PA
+555-1324
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: search
+
+
+Enter first name: Alonza
+
+Enter last name: Heard
+
+Matching card found:
+Alonza Heard
+Mechanic
+123 Anyplace Ave, Malden, MA
+555-5678
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Alonza Heard
+Mechanic
+123 Anyplace Ave, Malden, MA
+555-5678
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: flip
+
+Alan Lupine
+Vet
+1 Bigelow Ave., Lawrence, MA 
+555-7654
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: search
+
+
+Enter first name: Jon
+
+Enter last name: Smyth
+
+Matching card found:
+Jon Smyth
+Computer Hardware
+CMU Computer Services, Pittsburgh, PA
+555-1324
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Jon Smyth
+Computer Hardware
+CMU Computer Services, Pittsburgh, PA
+555-1324
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: remove
+
+About to delete:
+Jon Smyth
+Computer Hardware
+CMU Computer Services, Pittsburgh, PA
+555-1324
+
+Delete this card? (y/n): y
+Card removed.
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: add
+
+
+First name: Matthew
+
+Last name: Williams
+
+Occupation: Teacher
+
+Address: 69 Main St, Acton, MA
+
+Phone number: 555-9330
+Card added.
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Matthew Williams
+Teacher
+69 Main St, Acton, MA
+555-9330
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: flip
+
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: remove
+
+About to delete:
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+Delete this card? (y/n): y
+Card removed.
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Tony Hansen
+Writer
+12 E. St. NY, NY 33333
+555-9999
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: add
+
+
+First name: Jim
+
+Last name: Butler
+
+Occupation: Contractor
+
+Address: 33 Cedar Lane, Concord, MA
+
+Phone number: 555-8535
+Card added.
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Jim Butler
+Contractor
+33 Cedar Lane, Concord, MA
+555-8535
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: search
+
+
+Enter first name: Jewel
+
+Enter last name: Proverb
+
+Matching card found:
+Jewel Proverb
+Landscaper
+34 Washington St. Waltham, MA
+555-3333
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Jewel Proverb
+Landscaper
+34 Washington St. Waltham, MA
+555-3333
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: remove
+
+About to delete:
+Jewel Proverb
+Landscaper
+34 Washington St. Waltham, MA
+555-3333
+
+Delete this card? (y/n): y
+Card removed.
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: view
+
+Paul Revere
+Radical Revolutionary
+45 Commonwealth Ave., Boston, MA 
+555-1776
+
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: add
+
+
+First name: Jim
+
+Last name: Butler
+
+Occupation: Consultant
+
+Address: 22 Minuteman SAt  t, l Lexington, MA
+
+Phone number: 555-4422
+Card added.
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: add
+
+
+First name: Dan
+
+Last name: Butler
+
+Occupation: Chauffer ur
+
+Address: 68 Willow St, Westford, MA
+
+Phone number: 555-8439
+Card added.
+Do you want to continue? (y/n): y
+
+Commands: list, view, flip, add, remove, search, quit
+Enter command: list
+
+Dan Butler
+Chauffeur
+68 Willow St, Westford, MA
+555-8439
+
+Jim Butler
+Contractor
+33 Cedar Lane, Concord, MA
+555-8535
+
+Jim Butler
+Consultant
+22 Minuteman St, Lexington, MA
+555-4422
+
+Tony Hansen
+Writer
+12 E. St. NY, NY 33333
+555-9999
+
+Alonza Heard
+Mechanic
+123 Anyplace Ave, Malden, MA
+555-5678
+
+Alan Lupine
+Vet
+1 Bigelow Ave., Lawrence, MA 
+555-7654
+
+Fred Milton
+Sales
+12 Freedom Way, Nashua, NH
+555-9981
+
+Seymour Papert
+Lego Professor
+MIT
+555-1111
+
+Paul Revere
+Radical Revolutionary
+45 Commonwealth Ave., Boston, MA 
+555-1776
+
+Jen Reyes
+Graphic artist 
+325 Oak Rd, Wilmington, MA
+555-4950
+
+Matthew Williams
+Teacher
+69 Main St, Acton, MA
+555-9330
+
+Do you want to continue? (y/n): n
+Goodbye!
+
+
+...Program finished with exit code 0
+Press ENTER to exit console.

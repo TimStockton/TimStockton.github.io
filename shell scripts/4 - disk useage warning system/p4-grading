@@ -1,0 +1,490 @@
+#!/bin/bash
+
+# File System Usage Warning Test Suite
+# Tests the fs_usage_warning script according to assignment requirements
+# Author: Test Suite Generator
+# Usage: ./test_fs_usage_warning.sh <path_to_fs_usage_warning_script>
+
+set -e  # Exit on any error during setup
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Global variables
+SCRIPT_TO_TEST=""
+TEST_DIR=""
+MOCK_DIR=""
+ORIGINAL_PATH="$PATH"
+TEST_COUNT=0
+PASS_COUNT=0
+FAIL_COUNT=0
+
+# Test results tracking
+declare -a TEST_RESULTS=()
+
+# Function to print colored output
+print_color() {
+    local color=$1
+    local message=$2
+    echo -e "${color}${message}${NC}"
+}
+
+# Function to log test results
+log_test() {
+    local test_name="$1"
+    local status="$2"
+    local details="$3"
+    
+    TEST_COUNT=$((TEST_COUNT + 1))
+    if [[ "$status" == "PASS" ]]; then
+        PASS_COUNT=$((PASS_COUNT + 1))
+        print_color "$GREEN" "✓ PASS: $test_name"
+    else
+        FAIL_COUNT=$((FAIL_COUNT + 1))
+        print_color "$RED" "✗ FAIL: $test_name"
+        if [[ -n "$details" ]]; then
+            print_color "$RED" "  Details: $details"
+        fi
+    fi
+    TEST_RESULTS+=("$status: $test_name")
+}
+
+# Function to setup test environment
+setup_test_env() {
+    print_color "$BLUE" "Setting up test environment..."
+    
+    # Create temporary test directory
+    TEST_DIR=$(mktemp -d)
+    MOCK_DIR="$TEST_DIR/mock_bin"
+    mkdir -p "$MOCK_DIR"
+    
+    # Create mock df command
+    cat > "$MOCK_DIR/df" << 'EOF'
+#!/bin/bash
+# Mock df command for testing
+
+case "$DF_TEST_SCENARIO" in
+    "low_usage")
+        cat << 'DFEOF'
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+/dev/mapper/test-root        141786532  5874056 128816568   5% /       
+/dev/sda1                       233191    49878    170872  23% /boot
+DFEOF
+        ;;
+    "warning_usage")
+        cat << 'DFEOF'
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+/dev/mapper/test-root        141786532 95675566  46110966  68% /       
+/dev/sda1                       233191   174393     46357  79% /boot
+DFEOF
+        ;;
+    "critical_usage")
+        cat << 'DFEOF'
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+/dev/mapper/test-root        141786532 127608079  14178453  90% /       
+/dev/sda1                       233191   209472     11278  95% /boot
+DFEOF
+        ;;
+    "mixed_usage")
+        cat << 'DFEOF'
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+/dev/mapper/test-root        141786532  5874056 128816568  15% /       
+/dev/sda1                       233191   174393     46357  79% /boot
+/dev/sdb1                       500000   450000     50000  90% /var
+DFEOF
+        ;;
+    "no_ext_filesystems")
+        cat << 'DFEOF'
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+DFEOF
+        ;;
+    *)
+        # Default scenario - mixed usage
+        cat << 'DFEOF'
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+/dev/mapper/test-root        141786532  8518932 126171692  7% /       
+/dev/sda1                       233191    49878    170872  23% /boot
+DFEOF
+        ;;
+esac
+EOF
+    chmod +x "$MOCK_DIR/df"
+    
+    # Create mock mail command that captures email content
+    cat > "$MOCK_DIR/mail" << 'EOF'
+#!/bin/bash
+# Mock mail command for testing - captures email instead of sending
+
+MAIL_LOG="$TEST_DIR/mail_log.txt"
+MAIL_COUNT_FILE="$TEST_DIR/mail_count.txt"
+
+# Initialize mail count if it doesn't exist
+if [[ ! -f "$MAIL_COUNT_FILE" ]]; then
+    echo "0" > "$MAIL_COUNT_FILE"
+fi
+
+# Increment mail count
+MAIL_COUNT=$(cat "$MAIL_COUNT_FILE")
+MAIL_COUNT=$((MAIL_COUNT + 1))
+echo "$MAIL_COUNT" > "$MAIL_COUNT_FILE"
+
+# Parse arguments
+SUBJECT=""
+RECIPIENTS=()
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -s)
+            SUBJECT="$2"
+            shift 2
+            ;;
+        *)
+            RECIPIENTS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+# Log email details
+echo "=== EMAIL #$MAIL_COUNT ===" >> "$MAIL_LOG"
+echo "TO: ${RECIPIENTS[*]}" >> "$MAIL_LOG"
+echo "SUBJECT: $SUBJECT" >> "$MAIL_LOG"
+echo "BODY:" >> "$MAIL_LOG"
+
+# Read body from stdin (here-document)
+while IFS= read -r line; do
+    echo "$line" >> "$MAIL_LOG"
+done
+
+echo "=== END EMAIL #$MAIL_COUNT ===" >> "$MAIL_LOG"
+echo "" >> "$MAIL_LOG"
+EOF
+    chmod +x "$MOCK_DIR/mail"
+    
+    # Create mock mailx as alias to mail
+    ln -s "$MOCK_DIR/mail" "$MOCK_DIR/mailx"
+    
+    # Update PATH to use mock commands
+    export PATH="$MOCK_DIR:$ORIGINAL_PATH"
+    
+    print_color "$GREEN" "Test environment ready at: $TEST_DIR"
+}
+
+# Function to cleanup test environment
+cleanup_test_env() {
+    print_color "$BLUE" "Cleaning up test environment..."
+    export PATH="$ORIGINAL_PATH"
+    rm -rf "$TEST_DIR"
+}
+
+# Function to reset for new test
+reset_test_state() {
+    # Clear mail log
+    rm -f "$TEST_DIR/mail_log.txt"
+    rm -f "$TEST_DIR/mail_count.txt"
+    unset DF_TEST_SCENARIO
+}
+
+# Function to check if script exists and is executable
+check_script() {
+    if [[ ! -f "$SCRIPT_TO_TEST" ]]; then
+        print_color "$RED" "Error: Script '$SCRIPT_TO_TEST' not found!"
+        exit 1
+    fi
+    
+    if [[ ! -x "$SCRIPT_TO_TEST" ]]; then
+        print_color "$YELLOW" "Warning: Script '$SCRIPT_TO_TEST' is not executable. Attempting to make it executable..."
+        chmod +x "$SCRIPT_TO_TEST" || {
+            print_color "$RED" "Error: Could not make script executable!"
+            exit 1
+        }
+    fi
+}
+
+# Function to count emails sent
+get_email_count() {
+    if [[ -f "$TEST_DIR/mail_count.txt" ]]; then
+        cat "$TEST_DIR/mail_count.txt"
+    else
+        echo "0"
+    fi
+}
+
+# Function to get email content
+get_email_content() {
+    if [[ -f "$TEST_DIR/mail_log.txt" ]]; then
+        cat "$TEST_DIR/mail_log.txt"
+    fi
+}
+
+# Test 1: No email addresses provided (should exit with error)
+test_no_email_addresses() {
+    reset_test_state
+    export DF_TEST_SCENARIO="low_usage"
+    
+    local exit_code=0
+    "$SCRIPT_TO_TEST" 2>/dev/null || exit_code=$?
+    
+    if [[ $exit_code -ne 0 ]]; then
+        log_test "No email addresses error handling" "PASS"
+    else
+        log_test "No email addresses error handling" "FAIL" "Script should exit with error when no email addresses provided"
+    fi
+}
+
+# Test 2: Default threshold (60%) with low usage - no email should be sent
+test_default_threshold_low_usage() {
+    reset_test_state
+    export DF_TEST_SCENARIO="low_usage"
+    
+    "$SCRIPT_TO_TEST" "test@example.com" >/dev/null 2>&1
+    local email_count=$(get_email_count)
+    
+    if [[ "$email_count" == "0" ]]; then
+        log_test "Default threshold with low usage" "PASS"
+    else
+        log_test "Default threshold with low usage" "FAIL" "Expected 0 emails, got $email_count"
+    fi
+}
+
+# Test 3: Default threshold (60%) with warning usage - emails should be sent
+test_default_threshold_warning_usage() {
+    reset_test_state
+    export DF_TEST_SCENARIO="warning_usage"
+    
+    "$SCRIPT_TO_TEST" "test@example.com" >/dev/null 2>&1
+    local email_count=$(get_email_count)
+    local email_content=$(get_email_content)
+    
+    # Should send 2 emails (one for each filesystem above 60%)
+    if [[ "$email_count" == "2" ]]; then
+        # Check if email contains warning subject
+        if echo "$email_content" | grep -q "Warning:.*file system.*above.*used"; then
+            log_test "Default threshold warning emails" "PASS"
+        else
+            log_test "Default threshold warning emails" "FAIL" "Email subject format incorrect"
+        fi
+    else
+        log_test "Default threshold warning emails" "FAIL" "Expected 2 emails, got $email_count"
+    fi
+}
+
+# Test 4: Critical usage (90%+) - should send critical warning emails
+test_critical_usage() {
+    reset_test_state
+    export DF_TEST_SCENARIO="critical_usage"
+    
+    "$SCRIPT_TO_TEST" "test@example.com" >/dev/null 2>&1
+    local email_count=$(get_email_count)
+    local email_content=$(get_email_content)
+    
+    if [[ "$email_count" == "2" ]]; then
+        # Check for critical warning subject
+        if echo "$email_content" | grep -q "Critical Warning:.*greater than or equal to 90%"; then
+            log_test "Critical usage warnings" "PASS"
+        else
+            log_test "Critical usage warnings" "FAIL" "Critical warning subject format incorrect"
+        fi
+    else
+        log_test "Critical usage warnings" "FAIL" "Expected 2 emails, got $email_count"
+    fi
+}
+
+# Test 5: Custom threshold with -c option
+test_custom_threshold() {
+    reset_test_state
+    export DF_TEST_SCENARIO="warning_usage"  # 68% and 79% usage
+    
+    # Test with 70% threshold - should only send one email (79% > 70%)
+    "$SCRIPT_TO_TEST" -c 70 "test@example.com" >/dev/null 2>&1
+    local email_count=$(get_email_count)
+    
+    if [[ "$email_count" == "1" ]]; then
+        log_test "Custom threshold (-c 70)" "PASS"
+    else
+        log_test "Custom threshold (-c 70)" "FAIL" "Expected 1 email, got $email_count"
+    fi
+}
+
+# Test 6: Multiple email addresses
+test_multiple_email_addresses() {
+    reset_test_state
+    export DF_TEST_SCENARIO="warning_usage"
+    
+    "$SCRIPT_TO_TEST" "user1@example.com" "user2@example.com" "user3@example.com" >/dev/null 2>&1
+    local email_content=$(get_email_content)
+    
+    # Check if emails were sent to all recipients
+    local user1_count=$(echo "$email_content" | grep -c "TO:.*user1@example.com" || echo "0")
+    local user2_count=$(echo "$email_content" | grep -c "TO:.*user2@example.com" || echo "0")
+    local user3_count=$(echo "$email_content" | grep -c "TO:.*user3@example.com" || echo "0")
+    
+    if [[ "$user1_count" -gt 0 && "$user2_count" -gt 0 && "$user3_count" -gt 0 ]]; then
+        log_test "Multiple email addresses" "PASS"
+    else
+        log_test "Multiple email addresses" "FAIL" "Not all email addresses received emails"
+    fi
+}
+
+# Test 7: Email body contains df header and filesystem line
+test_email_body_content() {
+    reset_test_state
+    export DF_TEST_SCENARIO="warning_usage"
+    
+    "$SCRIPT_TO_TEST" "test@example.com" >/dev/null 2>&1
+    local email_content=$(get_email_content)
+    
+    # Check for df header in email body
+    if echo "$email_content" | grep -q "Filesystem.*1K-blocks.*Used.*Available.*Use%.*Mounted on"; then
+        # Check for filesystem data line
+        if echo "$email_content" | grep -q "/dev/.*68%\|/dev/.*79%"; then
+            log_test "Email body content format" "PASS"
+        else
+            log_test "Email body content format" "FAIL" "Email body missing filesystem data"
+        fi
+    else
+        log_test "Email body content format" "FAIL" "Email body missing df header"
+    fi
+}
+
+# Test 8: Mixed usage scenario - only filesystems above threshold get emails
+test_mixed_usage_scenario() {
+    reset_test_state
+    export DF_TEST_SCENARIO="mixed_usage"  # 15%, 79%, 90%
+    
+    # With default 60% threshold, should get 2 emails (79% and 90%)
+    "$SCRIPT_TO_TEST" "test@example.com" >/dev/null 2>&1
+    local email_count=$(get_email_count)
+    local email_content=$(get_email_content)
+    
+    if [[ "$email_count" == "2" ]]; then
+        # Should have one warning (79%) and one critical (90%)
+        local warning_count=$(echo "$email_content" | grep -c "Warning:.*above.*used" || echo "0")
+        local critical_count=$(echo "$email_content" | grep -c "Critical Warning:.*90%" || echo "0")
+        
+        if [[ "$warning_count" == "1" && "$critical_count" == "1" ]]; then
+            log_test "Mixed usage scenario" "PASS"
+        else
+            log_test "Mixed usage scenario" "FAIL" "Expected 1 warning + 1 critical, got $warning_count warnings, $critical_count critical"
+        fi
+    else
+        log_test "Mixed usage scenario" "FAIL" "Expected 2 emails, got $email_count"
+    fi
+}
+
+# Test 9: No ext4/ext2 filesystems (empty df output)
+test_no_ext_filesystems() {
+    reset_test_state
+    export DF_TEST_SCENARIO="no_ext_filesystems"
+    
+    "$SCRIPT_TO_TEST" "test@example.com" >/dev/null 2>&1
+    local email_count=$(get_email_count)
+    
+    if [[ "$email_count" == "0" ]]; then
+        log_test "No ext4/ext2 filesystems" "PASS"
+    else
+        log_test "No ext4/ext2 filesystems" "FAIL" "Expected 0 emails, got $email_count"
+    fi
+}
+
+# Test 10: Invalid -c option (non-numeric)
+test_invalid_threshold() {
+    reset_test_state
+    export DF_TEST_SCENARIO="low_usage"
+    
+    local exit_code=0
+    "$SCRIPT_TO_TEST" -c "abc" "test@example.com" 2>/dev/null || exit_code=$?
+    
+    # Script should handle invalid threshold gracefully (implementation dependent)
+    # This test documents the behavior rather than enforcing it
+    log_test "Invalid threshold handling" "PASS" "Exit code: $exit_code (behavior may vary)"
+}
+
+# Function to display comprehensive test summary
+display_test_summary() {
+    echo
+    print_color "$BLUE" "==================== TEST SUMMARY ===================="
+    print_color "$GREEN" "Total Tests: $TEST_COUNT"
+    print_color "$GREEN" "Passed: $PASS_COUNT"
+    print_color "$RED" "Failed: $FAIL_COUNT"
+    
+    if [[ $FAIL_COUNT -eq 0 ]]; then
+        print_color "$GREEN" "🎉 ALL TESTS PASSED! 🎉"
+        echo
+        print_color "$GREEN" "The script appears to meet all assignment requirements:"
+        echo "  ✓ Handles command line arguments correctly"
+        echo "  ✓ Processes df output properly"
+        echo "  ✓ Sends appropriate warning/critical emails"
+        echo "  ✓ Uses proper email formatting"
+        echo "  ✓ Handles multiple recipients and filesystems"
+    else
+        print_color "$RED" "❌ SOME TESTS FAILED ❌"
+        echo
+        print_color "$YELLOW" "Areas needing attention:"
+        for result in "${TEST_RESULTS[@]}"; do
+            if [[ "$result" == "FAIL:"* ]]; then
+                print_color "$RED" "  • ${result#FAIL: }"
+            fi
+        done
+    fi
+    
+    echo
+    print_color "$BLUE" "Test logs available at: $TEST_DIR"
+    print_color "$BLUE" "Email capture log: $TEST_DIR/mail_log.txt"
+    print_color "$BLUE" "======================================================"
+}
+
+# Main execution
+main() {
+    if [[ $# -ne 1 ]]; then
+        echo "Usage: $0 <path_to_fs_usage_warning_script>"
+        echo
+        echo "This script tests the fs_usage_warning program according to"
+        echo "the assignment requirements and grading rubric."
+        exit 1
+    fi
+    
+    SCRIPT_TO_TEST="$1"
+    
+    print_color "$BLUE" "File System Usage Warning - Test Suite"
+    print_color "$BLUE" "======================================="
+    print_color "$YELLOW" "Testing script: $SCRIPT_TO_TEST"
+    echo
+    
+    # Verify script exists and is executable
+    check_script
+    
+    # Setup test environment
+    setup_test_env
+    
+    # Ensure TEST_DIR is available to mock commands
+    export TEST_DIR
+    
+    # Run all tests
+    print_color "$BLUE" "Running tests..."
+    echo
+    
+    test_no_email_addresses
+    test_default_threshold_low_usage
+    test_default_threshold_warning_usage
+    test_critical_usage
+    test_custom_threshold
+    test_multiple_email_addresses
+    test_email_body_content
+    test_mixed_usage_scenario
+    test_no_ext_filesystems
+    test_invalid_threshold
+    
+    # Display results
+    display_test_summary
+    
+    # Cleanup
+    trap cleanup_test_env EXIT
+}
+
+# Run main function with all arguments
+main "$@"

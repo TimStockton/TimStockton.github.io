@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# script name: fs_usage_warning
+# script author: Timothy Stockton
+# last modified: 20251024
+#
+# this script checks the disk usage percent of a file system
+# if the usage is too high, an email is sent to the user
+# option flags include the following:
+#    -c : specify the capacity percentage
+# multiple emails can be listed separated by spaces
+
+# default 60% capacity threshold
+THRESHOLD=60
+
+RECIPIENTS=()
+SUBJECT=""
+MESSAGE=""
+
+# command called with no args, display usage
+if [ "$#" -eq 0 ]
+    then
+    echo "you must provide an email recipient"
+    exit 1
+fi
+
+# process args: option flags and recipient email(s)
+while [ $# -gt 0 ] 
+    do
+    case $1 in
+    -c)
+        if [ -z "$2" ]
+            then
+            echo "Error: -c requires a capacity value"
+            exit 1
+        fi
+        # option match, set flag
+        THRESHOLD=$2
+        # remove -c and the next arg (threshold value)
+        shift 2
+        continue
+        ;;
+    -*)
+        # unknown option, display usage
+        echo "unknown option '$1'..."
+        exit 1
+        ;;
+    *)
+        # non-option arg (recipient email)
+        RECIPIENTS+=("$1")
+        ;;
+    esac
+    shift
+done
+
+# capture the df output once
+df_output=$(df -k -t ext4 -t ext2)
+
+# get the header line for use in email
+header=$(echo "$df_output" | head -n 1)
+
+echo "$df_output" | awk 'NR>1 {print $5, $6}' | while read usage mountpoint; do
+    # Remove trailing % from usage
+    usage=${usage%\%}
+    
+    # Check usage against threshold  
+
+    if (( usage >= THRESHOLD && usage < 90 )); then
+        SUBJECT="Warning: the file system $mountpoint is above ${THRESHOLD}% used"
+    elif (( usage >= 90 )); then
+        SUBJECT="Critical Warning: the file system $mountpoint is greater than or equal to 90% capacity"
+    else
+        continue
+    fi
+
+    # extract the full df line for this mountpoint
+    line=$(echo "$df_output" | grep " $mountpoint\$")
+
+    # Send an inline email to each recipient
+    for recipient in "${RECIPIENTS[@]}"
+        do
+        mail -s "$SUBJECT" "$recipient" <<EOF
+$header
+$line
+EOF
+    done
+done

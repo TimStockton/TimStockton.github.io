@@ -1,0 +1,19 @@
+Bcc: timstocktonii@gmail.com
+Return-Path: <timstocktonii@gmail.com>
+Received: from backstage.lan ([72.95.94.88])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8be31b669desm265262085a.39.2025.12.16.14.44.14
+        for <timstocktonii@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Dec 2025 14:44:14 -0800 (PST)
+From: root <timstocktonii@gmail.com>
+X-Google-Original-From: root <root@backstage>
+Received: by backstage.lan (Postfix) id 31BC3260A71; Tue, 16 Dec 2025 22:44:14 +0000 (UTC)
+Delivered-To: root@backstage.lan
+Received: by backstage.lan (Postfix, from userid 0) id 254C5260A70; Tue, 16 Dec 2025 22:44:14 +0000 (UTC)
+Subject: Root Test
+To: root@backstage.lan
+User-Agent: mail (GNU Mailutils 3.17)
+Date: Tue, 16 Dec 2025 22:44:14 +0000
+Message-Id: <20251216224414.254C5260A70@backstage.lan>
+
+This is a test for the email forwarding on my Ubuntu server. This mail is being sent to root, and should be forwarded to both the local user 'linuxtest' as well as the external gmail user 'timstocktonii@gmail.com'.

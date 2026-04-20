@@ -1,0 +1,144 @@
+/var/log/user_management_test.log:
+
+*** Users With No Password ***
+User lxd has no password and will be locked if not already
+User dhcpcd has no password and will be locked if not already
+User polkitd has no password and will be locked if not already
+*** Users With No Password ***
+User lxd has no password and will be locked if not already
+User dhcpcd has no password and will be locked if not already
+User polkitd has no password and will be locked if not already
+*** Adding Users From File ***
+User testuser1 created from file
+User testuser2 created from file
+User nopassuser created from file
+User expireuser created from file
+User root already exists... Skipping
+*** Adding User: testuser3 ***
+User testuser3 created
+*** Users With No Password ***
+User lxd has no password and will be locked if not already
+User dhcpcd has no password and will be locked if not already
+User polkitd has no password and will be locked if not already
+User nopassuser has no password and will be locked if not already
+User testuser3 has no password and will be locked if not already
+*** Expired Accounts ***
+expireuser : EXPIRED
+*** Expiration Dates ***
+root expires on:  never
+daemon expires on:  never
+bin expires on:  never
+sys expires on:  never
+sync expires on:  never
+games expires on:  never
+man expires on:  never
+lp expires on:  never
+mail expires on:  never
+news expires on:  never
+uucp expires on:  never
+proxy expires on:  never
+www-data expires on:  never
+backup expires on:  never
+list expires on:  never
+irc expires on:  never
+gnats expires on:  never
+nobody expires on:  never
+systemd-network expires on:  never
+systemd-resolve expires on:  never
+systemd-timesync expires on:  never
+messagebus expires on:  never
+syslog expires on:  never
+_apt expires on:  never
+tss expires on:  never
+uuidd expires on:  never
+tcpdump expires on:  never
+landscape expires on:  never
+pollinate expires on:  never
+usbmux expires on:  never
+sshd expires on:  never
+systemd-coredump expires on:  never
+lxd expires on:  never
+linuxtest expires on:  never
+fwupd-refresh expires on:  never
+psidemica expires on:  never
+dhcpcd expires on:  never
+polkitd expires on:  never
+testuser1 expires on:  Jan 01, 2026
+testuser2 expires on:  never
+nopassuser expires on:  Jan 01, 2027
+expireuser expires on:  Feb 02, 2000
+testuser3 expires on:  Jan 01, 2028
+*** Accounts That Never Expire ***
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+nobody
+systemd-network
+systemd-resolve
+systemd-timesync
+messagebus
+syslog
+_apt
+tss
+uuidd
+tcpdump
+landscape
+pollinate
+usbmux
+sshd
+systemd-coredump
+lxd
+linuxtest
+fwupd-refresh
+psidemica
+dhcpcd
+polkitd
+testuser2
+*** Locking Users ***
+Locking testuser1
+Locking testuser2
+*** Unlocking Users ***
+Unlocking testuser1
+Unlocking testuser2
+*** Changing Expiration ***
+Setting expiration for testuser3 to 2030-01-01
+*** Changing Expiration ***
+User testuser4 does not exist
+*** Changing Expiration ***
+User  does not exist
+
+/var/log/user_management_cron_test.log (after 3 minutes):
+
+*** Users With No Password ***
+User lxd has no password and will be locked if not already
+User dhcpcd has no password and will be locked if not already
+User polkitd has no password and will be locked if not already
+User nopassuser has no password and will be locked if not already
+User testuser3 has no password and will be locked if not already
+*** Users With No Password ***
+User lxd has no password and will be locked if not already
+User dhcpcd has no password and will be locked if not already
+User polkitd has no password and will be locked if not already
+User nopassuser has no password and will be locked if not already
+User testuser3 has no password and will be locked if not already
+*** Users With No Password ***
+User lxd has no password and will be locked if not already
+User dhcpcd has no password and will be locked if not already
+User polkitd has no password and will be locked if not already
+User nopassuser has no password and will be locked if not already
+User testuser3 has no password and will be locked if not already
+
