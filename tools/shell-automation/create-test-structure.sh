@@ -1,6 +1,6 @@
 #!/bin/bash
 # create-test-structure.sh
-# Creates test directory structure for Assignment 3
+# Creates test directory structure for fix-spaces.sh
 
 create_test_structure() {
     local base_dir="$1"

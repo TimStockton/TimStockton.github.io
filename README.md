@@ -10,11 +10,9 @@ This is my portfolio with projects in the following categories: [v1.0.0]
 - tools and scripts
 
 ## DONE:
-- [x] 
-- [x] 
-- [x] 
-- [x] 
-- [x] 
+- [x] added UML code projects
+- [x] reorganized all files into new dir structure
+- [x] split old portfolio into seperate pages
 
 ## IDEAS / TO DO:
 - [ ] Make markdown previewer functional
@@ -29,15 +27,6 @@ If it doesn’t answer:
 “Would I hire this person based on this?”
 Then it shouldn’t be on your main pages.
 -----------------------------------------
-
-Ideal site structure (clean + professional)
-
-🧭 NAVBAR
-Home
-Projects
-Research
-Experience
-Contact
 
 🏠 HOME (landing)
 Short. Punchy.

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# script name: fs_usage_warning
+# script name: fs_usage_warning.sh
 # script author: Timothy Stockton
 # last modified: 20251024
 #

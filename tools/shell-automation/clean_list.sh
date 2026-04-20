@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# script name: clean_list
+# script name: clean_list.sh
 # script author: Timothy Stockton
 # last modified: 20251017
 #
