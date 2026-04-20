@@ -1,32 +1,78 @@
 # Fenwig5.github.io
-This is my web dev portfolio. I am still adding and updating and likely will be for a while. [v0.5.0]
+This is my portfolio with projects in the following categories: [v1.0.0]
+- software engineering
+- web development
+- machine learning
+- data analysis
+- cyber security
+- server administration
+- e-commerce
 
 ## DONE:
-- [x] Updated JavaScript calculator
-- [x] Added login page
-- [x] Added temparature converter page
-- [x] Added mpg calculator page
-- [x] Added future value calculator page
-- [x] Added product discount calculator page
-- [x] Decided fonts
-- [x] Improved main page layout and made nav vertical on left
-- [x] Applied basic layout and styling to project pages
-- [x] Changed copyright date(s)
-- [x] pushed slight upgraded portfolio version
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
 
-## TO DO:
-- [ ] add all portfolio worthy stuff from college
-- [ ] Add more quotes to quote machine
-- [ ] Disable repeats for quote machine
+## IDEAS / TO DO:
+- [ ] add all portfolio worthy stuff from college (especially UML)
+
 - [ ] Make markdown previewer functional
 - [ ] Make drum machine functional
-- [ ] Improve survey
-- [ ] Make survey submittable
-- [ ] Add social links (linked-in, github)
-- [ ] Make an algorithms in action page <!-- for the 5 javascript algorithms in 'pages to finish' -->
-- [ ] Make a data visualization page <!-- for the maps, graph,  diagram, and chart in 'pages to finish' -->
-- [ ] Make a page for pomodoro clock and make it functional <!-- in 'pages to finish' -->
+- [ ] Make survey submittable and better
+- [ ] add description overview of owl assist project
 
-### IDEAS:
-- [ ] Make a 2nd calculator/improve current calculator
-- [ ] combine all types of calculators into a single Calculator page?
+- [ ] Make an algorithms/engineering in action page/section
+        pages to finish pomodoro clock
+        javascript calculator
+        javascript random quote machine
+        javascript roman numeral converter
+        javascript shift cipher
+        javascript  temperature converter
+        survey form
+        java deadlock monitor
+        python directory mapper? {not in repo yet}
+        c employee pay system {not in repo yet}
+        c++ rolodex {not in repo yet}
+        psidemica.com (art portfolio, e-commerce shop, members hub)
+
+- [ ] Make a data analysis page/section
+        internet by country poster pdf
+        particulate matter analysis pdf
+        planaria analysis pdf
+        solar wind analysis pdf
+        pages to finish choropleth map
+        pages to finish heat map
+        pages to finish scatterplot graph
+        pages to finish treemap diagram
+        d3 bar chart?
+
+- [ ] Make a machine learning page/section
+        preprocessing experimentation for breast cancer classification
+        python notebooks (decision trees, logistic regression, pca, kmeans)
+
+- [ ] make a cyber security page/section
+        python notebooks (key inversion, ciphertext to binary)
+        java rc4ksa
+        java symmetric encryption, decryption, and transmission
+        java additive cipher
+        java block cypher encrypt and decrypt
+
+- [ ] make a section/page for shell/lab scripts
+        bash user management {not in repo yet}
+        setup docs for owncloud? {not in repo yet}
+        setup doc for external mail routing? {not in repo yet}
+        python music library management script? {not in repo yet}
+        bash audio conversion scripts {not in repo yet}
+        python batch rename {not in repo yet}
+        python playlist map? {not in repo yet}
+        bash executable file locator {not in repo yet}
+        bash list concatenation {not in repo yet}
+        bash file and directory renamer {not in repo yet}
+        bash disk usage warning system {not in repo yet}
+        python decode? {not in repo yet}
+
+- [ ] 
+- [ ] 
+- [ ] 
