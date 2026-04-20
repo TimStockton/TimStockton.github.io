@@ -7,6 +7,7 @@ This is my portfolio with projects in the following categories: [v1.0.0]
 - cyber security
 - server administration
 - e-commerce
+- tools and scripts
 
 ## DONE:
 - [x] 
@@ -16,139 +17,18 @@ This is my portfolio with projects in the following categories: [v1.0.0]
 - [x] 
 
 ## IDEAS / TO DO:
-- [ ] add all portfolio worthy stuff from college (especially UML)
-
 - [ ] Make markdown previewer functional
 - [ ] Make drum machine functional
 - [ ] Make survey submittable and better
-- [ ] add description overview of owl assist project
-
-- [ ] Make an algorithms/engineering in action page/section
-        pages to finish pomodoro clock
-        javascript calculator
-        javascript random quote machine
-        javascript roman numeral converter
-        javascript shift cipher
-        javascript  temperature converter
-        survey form
-        java deadlock monitor
-        python directory mapper?
-        c employee pay system
-        c++ rolodex
-        psidemica.com (art portfolio, e-commerce shop, members hub)
-
-- [ ] Make a data analysis page/section
-        internet by country poster pdf
-        particulate matter analysis pdf
-        planaria analysis pdf
-        solar wind analysis pdf
-        pages to finish choropleth map
-        pages to finish heat map
-        pages to finish scatterplot graph
-        pages to finish treemap diagram
-        d3 bar chart?
-
-- [ ] Make a machine learning page/section
-        preprocessing experimentation for breast cancer classification
-        python notebooks (decision trees, logistic regression, pca, kmeans)
-
-- [ ] make a cyber security page/section
-        python notebooks (key inversion, ciphertext to binary)
-        java rc4ksa
-        java symmetric encryption, decryption, and transmission
-        java additive cipher
-        java block cypher encrypt and decrypt
-
-- [ ] make a section/page for shell/lab scripts
-        bash user management
-        setup docs for owncloud?
-        setup doc for external mail routing?
-        python music library management script?
-        bash audio conversion scripts
-        python batch rename
-        python playlist map?
-        bash executable file locator
-        bash list concatenation
-        bash file and directory renamer
-        bash disk usage warning system
-        python decode?
-
 - [ ] make a setup script for arch linux
-- [ ] store textbook files? (unlisted? legality?)
-- [ ] remove code from education directories (and code archive?) after integrating
+- [ ] remove code from education directories and code archive after integrating
+- [ ] create seperate archive repo for full useable code, not just display/demo
 
-ANALYSIS
-
+-----------------------------------------
 If it doesn’t answer:
 “Would I hire this person based on this?”
-…it shouldn’t be on your main site.
-
-Top-tier (lead with these):
-Psidemica (FULL STACK MONSTER)
-    This is your crown jewel. It screams ownership + complexity.
-    You built auth, APIs, e-commerce, admin tools?? Yeah—this goes first.
-Owl Assist (real-world system + team experience)
-    Has cloud, scraping, AI, collaboration
-    This is your “I’ve worked on real systems” proof
-Published Research (ML paper)
-    Instant credibility bump
-    Most devs don’t have this → leverage it hard
-
-Mid-tier (good, but needs framing):
-Data analysis posters + papers
-Python notebooks (ML techniques)
-Shell scripts (ONLY if grouped as tooling/automation)
-C / C++ projects (if explained well)
-These need context + story, not just “here’s code”.
-Setup docs (turned into polished guides)
-
-Low-tier
-These are portfolio fillers, not differentiators:
-Calculator
-Temperature converter
-Roman numeral converter
-Shift cipher
-Random quote machine
-Survey form
-Group them into a “Foundations / Early Projects” section
-
-Suggested repo structure
-
-/portfolio
-  /apps
-    /psidemica
-    /owl-assist
-    /hub-app (your React/.NET project)
-
-  /data-ml
-    /breast-cancer-research
-    /data-analysis-projects
-    /notebooks
-
-  /engineering
-    /c-pay-system
-    /cpp-rolodex
-    /java-projects
-
-  /visualizations
-    /d3-bar-chart (only if polished and solid, maybe interactive, relate to a data-ml project)
-    /heatmap
-    /scatterplot
-    /treemap
-
-  /tools
-    /shell-automation
-    /python-scripts
-
-  /archive
-    /freecodecamp-projects
-      /calculator
-      /roman-numeral
-      /etc
-
-  /assets
-  index.html
-  README.md
+Then it shouldn’t be on your main pages.
+-----------------------------------------
 
 Ideal site structure (clean + professional)
 
@@ -190,6 +70,8 @@ Notebooks (summarized, not dumped)
 Shell + Python scripts (grouped)
 Present as:
 “Automation Toolkit”
+[] security & cryptography
+
 🧊 Foundations (collapsed section)
 All your FCC-style apps go here.
 
@@ -273,20 +155,6 @@ What’s the complexity?
 What tradeoffs?
 4. Link to repo
 “Full implementation available on GitHub”
-
-For your reuse goal (this is important)
-You said:
-“I want to reuse this logic later”
-Good instinct. Do this:
-Create a separate “code library” repo
-/cs-snippets
-  /algorithms
-  /data-structures
-  /concurrency
-  /parsing
-Keep it clean, reusable, documented
-👉 Your portfolio = showcase
-👉 That repo = your toolbox
 
 Should your React app be public?
 Yes. No hesitation.
