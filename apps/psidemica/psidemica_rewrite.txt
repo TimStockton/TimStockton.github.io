@@ -1,0 +1,55 @@
+Psidemica — Full-Stack Artist Platform & E-Commerce System
+
+Live: https://psidemica.com
+
+Tech Stack: PHP, JavaScript, HTML, CSS, MySQL, Python, AWS
+
+Overview
+Psidemica is a full-stack web platform I designed and built from the ground up to serve as both an artist portfolio and a feature-rich web application. What started as a creative outlet evolved into a multi-functional system with user accounts, e-commerce capabilities, and interactive community features.
+
+Key Features
+
+Custom E-Commerce System
+Built a complete storefront with product listings, cart functionality, and transaction handling
+Designed backend logic for managing inventory, purchases, and user data
+User Accounts & Member Hub
+Implemented authentication, session handling, and user-specific content
+Created a member dashboard with messaging, activity features, and interactive tools
+API Integrations
+Integrated external APIs (including NASA data) to provide dynamic, real-time content
+Designed reusable patterns for handling API requests and responses
+Admin Tooling
+Developed internal tools for managing users, content, and site behavior
+Enabled efficient updates without direct database manipulation
+Automation & Testing
+Built Python scripts to automate testing and validate functionality
+Reduced manual verification time and improved reliability of deployments
+
+Engineering Highlights
+
+Designed the entire application architecture without relying on frameworks, requiring manual handling of routing, state, and data flow
+Balanced front-end interactivity with back-end data consistency across multiple features
+Built scalable patterns for adding new features without breaking existing functionality
+Managed the project end-to-end, including design, development, testing, and iteration
+
+Challenges & Solutions
+
+Challenge: Managing state and user sessions without modern frameworks
+Solution: Built custom session handling and structured server-side logic to maintain consistency across pages
+Challenge: Preventing feature complexity from turning into unmaintainable code
+Solution: Modularized functionality and created reusable components for both front-end and back-end logic
+Challenge: Expanding from a simple portfolio into a full application
+Solution: Iteratively redesigned the architecture to support new features like e-commerce and user systems
+
+Impact
+
+Demonstrates ability to design and build a complex, multi-feature application from scratch
+Showcases full-stack development skills across front-end, back-end, and automation
+Reflects long-term project ownership, iteration, and real-world problem solving
+💡 Why this works (quick breakdown)
+
+Add these and it becomes elite-tier:
+
+Screenshots (dashboard, store, UI)
+Architecture diagram (even simple)
+“Future Improvements” section (shows growth mindset)

@@ -105,6 +105,7 @@ a:visited {
 
 body {
     background-color: #000000;
+    width: 100%;
 }
 
 header {
@@ -125,6 +126,8 @@ nav {
 main {
     background-color: #181818;
     width: 100%;
+    max-width: 1000px;
+    margin: auto;
 }
 
 footer {

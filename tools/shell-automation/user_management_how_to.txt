@@ -1,0 +1,106 @@
+How to use user_management.sh
+*requires root privileges*
+
+# This script:
+#   - Reports accounts with no password (and locks them)
+#   - Reports expired accounts
+#   - Reports expiration dates for all accounts
+#   - Reports accounts that never expire
+#   - Locks or unlocks specified accounts
+#   - Adds users (interactively or from file, not crontab)
+#         username, home dir, full name, password, exp date
+#         read from command line or file
+#         reset password on first login
+#   - Changes exp date for specified accounts (except root)
+#   - Optionally logs all actions to a specified file
+
+Recommended script install/storage location:
+/usr/local/sbin/user_management.sh
+
+Recommended log storage location:
+/var/log/user_management.log
+
+Ensure root is the owner and group for security:
+chown root:root /usr/local/sbin/user_management.sh
+
+Ensure the script is executable by root only:
+chmod 700 /usr/local/sbin/user_management.sh
+it should not be writable by non-root users 
+it should not be executable by non-root users
+
+-------------------------
+Running from command line
+-------------------------
+
+these commands should begin with sudo
+the script blocks attempts to modify root
+
+For all commands, you can specify a log file with the command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management.log <command> [options]
+the script output will print to console and append to the log file
+the log file can be .log, .txt, etc (it just appends plaintext)
+OR
+You can simply run a command:
+sudo /usr/local/sbin/user_management.sh <command> [options]
+
+the actual commands are as follows...
+
+Report accounts with no password (and lock them):
+sudo /usr/local/sbin/user_management.sh report_no_pass
+
+Report expired accounts:
+sudo /usr/local/sbin/user_management.sh report_expired
+
+Report expiration dates for all accounts:
+sudo /usr/local/sbin/user_management.sh report_expirations
+
+Report accounts that never expire:
+sudo /usr/local/sbin/user_management.sh report_no_expire
+
+Lock or unlock specified accounts:
+Lock users:
+sudo /usr/local/sbin/user_management.sh lock user1 user2 user3
+Unlock users:
+sudo /usr/local/sbin/user_management.sh unlock user1 user2 user3
+
+Add user interactively:
+sudo /usr/local/sbin/user_management.sh add_user username
+prompts for:
+    home directory
+    full name
+    password
+    expiration date (optional)
+forces a password change on first login
+
+Add user(s) from CSV file:
+sudo /usr/local/sbin/user_management.sh add_users_from_file users_file.csv
+file format: username,home,full_name,password,expiration_date(YYYY-MM-DD)
+header is ignored
+home can be empty, defaults to /home/<username>
+expiration_date can be empty
+forces a password change on first login
+
+Change exp date for specified accounts (except root):
+sudo /usr/local/sbin/user_management.sh set_expire username YYYY-MM-DD
+
+if an incorrect command is entered, a menu is displayed
+
+-------------------------
+Running from crontab
+-------------------------
+
+this script can auto-run on a schedule by adding it to the root crontab
+do not add it to a regular users crontab for permission reasons
+
+Edit root crontab:
+sudo crontab -e
+may need to select which editor to use for crontab
+
+Add entries calling the script with the desired command:
+30 2 * * * /usr/local/sbin/user_management.sh log /var/log/user_management_cron.log report_no_pass
+this example runs report_no_pass every day at 02:30 and logs the results
+
+always use full script and log file paths
+
+cron does not work for interactive commands
+do not run add_user with cron

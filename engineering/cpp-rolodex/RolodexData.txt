@@ -1,0 +1,59 @@
+Tony Hansen
+Writer
+12 E. St. NY, NY 33333
+555-9999
+
+
+Jon Smyth
+Computer Hardware
+CMU Computer Services, Pittsburgh, PA
+555-1324
+
+
+Alonza Heard
+Mechanic
+123 Anyplace Ave, Malden, MA
+555-5678
+
+
+Jen Reyes
+Graphic artist 
+325 Oak Rd, Wilmington, MA
+555-4950
+
+
+Alan Lupine
+Vet
+1 Bigelow Ave., Lawrence, MA 
+555-7654
+
+
+Jewel Proverb
+Landscaper
+34 Washington St. Waltham, MA
+555-3333
+
+
+Paul Revere
+Radical Revolutionary
+45 Commonwealth Ave., Boston, MA 
+555-1776
+
+
+Adolf Coors
+Beer Manufacturer
+Boston MA
+555-2337
+
+
+Seymour Papert
+Lego Professor
+MIT
+555-1111
+
+
+Fred Milton
+Sales
+12 Freedom Way, Nashua, NH
+555-9981
+

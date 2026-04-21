@@ -1,0 +1,225 @@
+Test plan for user_management.sh
+
+ensures all commands, options, and variations function correctly
+all tests must be run with effective root privileges
+steps and tests should be done in order
+
+-------------------------
+Setup
+-------------------------
+
+Install script at:
+/usr/local/sbin/user_management.sh
+
+Ensure root is the owner and group for security:
+chown root:root /usr/local/sbin/user_management.sh
+
+Ensure the script is executable by root only:
+chmod 700 /usr/local/sbin/user_management.sh
+
+Create a CSV file (used to create test users):
+/tmp/test_users.csv
+"
+username,home,full_name,password,expiration_date
+testuser1,,Test User One,password123,2026-01-01
+testuser2,/customhome/jeff,Jeff Johnson,pass456,
+nopassuser,,No Password,,2027-01-01
+expireuser,,Patricia Past,Str0ngerPa$$w0rd,2000-02-02
+root,,Admin Istrator,root123,
+"
+root is included to verify script refusal behavior
+
+-------------------------
+Logging Tests
+-------------------------
+
+*** Log File Creation
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log report_no_pass
+
+Expected:
+log file is created (if missing)
+console output appears
+identical output appended to log file
+
+*** Log File Overwrite/Append
+
+Command (running the above command a second time):
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log report_no_pass
+
+Expected:
+second run appends to log file, does not overwrite
+
+-------------------------
+User Creation Tests
+-------------------------
+
+*** Create Users from File
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log add_users_from_file /tmp/test_users.csv
+
+Expected:
+users created with specified home or default
+passwords set where provided
+forced password change on login
+expiration set where provided
+log output indicates successful user creations
+log output indicates root was skipped
+
+*** Interactive User Creation
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log add_user testuser3
+
+provide prompted values
+
+Expected:
+user created with correct home dir
+password set
+forced password change on login
+expiration date set if provided
+log output indicates successful user creation
+
+-------------------------
+Reporting Tests
+-------------------------
+
+*** report_no_pass
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log report_no_pass
+
+Expected:
+script identifies nopassuser
+script locks the account
+log output includes entry for the user
+
+*** report_expired
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log report_expired
+
+Expected:
+expireuser listed as expired
+log output includes entry for the user
+
+*** report_expirations
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log report_expirations
+
+Expected:
+all system accounts listed with expiration info
+log output includes all system accounts and expirations
+
+*** report_no_expire
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log report_no_expire
+
+Expected:
+all never-expiring accounts listed
+log output includes accounts that never expire
+
+-------------------------
+Account Modification Tests
+-------------------------
+
+*** Lock Users
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log lock testuser1 testuser2
+
+Expected:
+accounts locked (! prefix in /etc/shadow)
+log entries present
+
+*** Unlock Users
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log unlock testuser1 testuser2
+
+Expected:
+accounts unlocked
+log entries present
+
+*** Change Expiration (valid user)
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log set_expire testuser3 2030-01-01
+
+Expected:
+expiration updated
+log entry recorded
+
+*** Change Expiration (root)
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log set_expire root 2030-01-01
+
+Expected:
+script refuses
+no changes made
+
+-------------------------
+Error Handling Tests
+-------------------------
+
+*** Change Expiration (invalid user)
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log set_expire testuser4 2030-01-01
+
+Expected:
+error message
+
+*** Unknown Command
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log invalid_command
+
+Expected:
+error message
+list of valid commands
+
+*** Missing Arguments
+
+Command:
+sudo /usr/local/sbin/user_management.sh log /var/log/user_management_test.log set_expire
+
+Expected:
+error message
+
+-------------------------
+Crontab Test
+-------------------------
+
+Commands:
+sudo crontab -e
+* * * * * /usr/local/sbin/user_management.sh log /var/log/user_management_cron_test.log report_no_pass
+
+may need to select which editor to use for crontab
+
+Expected:
+cron runs command once per minute automatically
+nopassuser appended to log file automatically
+
+-------------------------
+Cleanup
+-------------------------
+
+Remove test accounts:
+sudo userdel -r testuser1
+sudo userdel -r testuser2
+sudo userdel -r testuser3
+sudo userdel -r nopassuser
+sudo userdel -r expireuser
+
+Remove logs:
+sudo rm /var/log/user_management_test.log
+sudo rm /var/log/user_management_cron_test.log
+
+Remove temp files:
+sudo rm /tmp/test_users.csv
