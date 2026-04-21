@@ -1,0 +1,45 @@
+/* LIGHT MODE (default) */
+:root {
+    --bg: #ffffff;
+    --text: #111;
+    --accent: #2563eb;
+    --card-bg: #f3f4f6;
+    --tag-bg: #e5e7eb;
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+    --bg: #0d1117;
+    --text: #c9d1d9;
+    --accent: #58a6ff;
+    --card-bg: #161b22;
+    --tag-bg: #21262d;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Transparent at top */
+.navbar {
+    background: transparent;
+}
+  
+/* After scroll */
+.navbar.scrolled {
+    background: var(--bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled .nav-links a {
+    opacity: 0.9;
+}
+  
+.navbar.scrolled .nav-links a:hover {
+    opacity: 1;
+}
+
+.navbar.scrolled {
+    backdrop-filter: blur(10px);
+}

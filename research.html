@@ -6,135 +6,148 @@
 <head>
     <title>TCSII</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="icon" href="assets/favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/ui.js" defer></script>
 </head>
 
 <body>
 
-    <header class="center">
-        <h1 style="margin:0; padding-top: 8px;">Timothy Stockton</h1>
-        <h3 style="color:lightgreen; margin:0;">
-            Backend & Full-Stack Software Engineer | Cloud & Systems Focus
-        </h3>
-        <p style="padding:8px 16px;">
-            Building scalable applications, automating systems, and working across cloud infrastructure.
-        </p>
-    
-        <nav style="background-color: black;">
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="research.html">Research</a>
-            <a href="experience.html">Experience</a>
-            <a href="contact.html">Contact</a>
-            <a href="https://www.linkedin.com/in/timothy-stockton" target="blank">LinkedIn</a>
-            <a href="https://github.com/TimStockton" target="blank">GitHub</a>
-        </nav>
-    </header>
-
-    <main class="center" id="main">
-        <h2 style="color:lightblue;">Research (Machine Learning & Data Analysis)</h2>
-        <br>
-        <p style="max-width:800px; margin:auto; padding:8px;">
-            Applied research in machine learning and data analysis, focused on evaluating model performance,
-            preprocessing techniques, and real-world data relationships using Python-based tooling.
-        </p>
-        <br>
-        <div id="preprocessing-techniques" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
-
-            <a href="data-ml/breast-cancer-research/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf" target="blank">
-                <img src="assets/research_paper_1_thumbnail.png"
-                     style="width: 20%; min-width:150px; max-width:300px; float:right; margin:16px;">
-            </a>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+      
+            <div class="logo">
+                <a href="index.html">TCSII</a>
+            </div>
         
-            <h3 style="padding:8px;">Published Research: ML Preprocessing & Model Performance</h3>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                ☰
+            </button>
         
-            <p style="padding:8px;">
-                Co-authored a published research paper analyzing the impact of preprocessing techniques on machine learning model performance
-                using a breast cancer dataset.
-            </p>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="research.html">Research</a>
+                <a href="experience.html">Experience</a>
+                <a href="contact.html">Contact</a>
+            </div>
         
-            <ul style="padding: 0px 32px; color: white;">
-                <li>Evaluated feature selection and extraction techniques including CFS, RFE, PCA, and LDA</li>
-                <li>Trained and compared multiple models: Logistic Regression, Random Forest, SVM, Neural Networks, and XGBoost</li>
-                <li>Built data processing and experimentation workflows using Python (Pandas, NumPy, Scikit-learn)</li>
-                <li>Analyzed performance tradeoffs across models and preprocessing strategies</li>
-            </ul>
-        
-            <p style="padding:8px;">
-                📄 <a href="data-ml/breast-cancer-research/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf" target="blank">
-                View Paper</a> |
-                📚 <a href="https://link.springer.com/chapter/10.1007/978-3-031-57870-0_24" target="blank">
-                Published via Springer (LNDECT, Vol. 201)</a>
-            </p>
-
-            <p style="padding:8px; font-style:italic;">
-                This work reflects my interest in data-driven system design and performance optimization.
-            </p>
-        
+            <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      
         </div>
-        <br>
-        <div id="internet-effect" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
+    </nav>
 
-            <a href="data-ml/data-analysis-projects/Internet by Country TCSII.pdf" target="_blank">
-                <img src="assets/research_poster_1_thumbnail.png"
-                    style="width: 20%; min-width:150px; max-width:300px; float:left; margin:16px;">
-            </a>
+    <main id="main">
+        <div class="container">
+            <h2 class="section-title">Research</h2>
 
-            <h3 style="padding:8px;">Global Internet Usage & Socioeconomic Analysis</h3>
-
-            <p style="padding:8px;">
-                Conducted independent data analysis exploring relationships between internet adoption and global socioeconomic indicators.
+            <p class="section-subtitle">
+            Applied machine learning and data analysis focused on model evaluation, preprocessing techniques, and real-world datasets.
             </p>
 
-            <ul style="padding: 0px 32px; color: white;">
-                <li>Analyzed country-level datasets including GDP, life expectancy, and social metrics</li>
-                <li>Identified correlations between internet usage and economic development factors</li>
-                <li>Built data pipelines and visualizations using Python (Pandas, Seaborn)</li>
-                <li>Presented findings through a structured research poster with supporting visuals</li>
-            </ul>
+            <div class="research-card">
 
-            <p style="padding:8px;">
-                📊 <a href="data-ml/data-analysis-projects/Internet by Country TCSII.pdf" target="_blank">
-                View Poster</a>
+                <div class="research-thumb">
+                    <a href="data-ml/breast-cancer-research/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf" target="_blank">
+                    <img src="assets/research_paper_1_thumbnail.png" alt="Research Paper">
+                    </a>
+                </div>
+
+                <div class="research-content">
+
+                    <h3>ML Preprocessing & Model Performance Study</h3>
+
+                    <p>
+                    Co-authored research analyzing how preprocessing techniques impact classification performance on medical datasets.
+                    </p>
+
+                    <ul>
+                    <li>Compared CFS, RFE, PCA, and LDA feature selection methods</li>
+                    <li>Evaluated multiple models including SVM, RF, XGBoost, Neural Networks</li>
+                    <li>Built full experimentation pipeline in Python (scikit-learn)</li>
+                    </ul>
+
+                    <div class="research-meta">
+                    Tools: Python, Pandas, NumPy, Scikit-learn
+                    </div>
+
+                    <div class="research-links">
+                        <a href="data-ml/breast-cancer-research/Preprocessing_Experimentation_for_Breast_Cancer_Classification.pdf" target="_blank">Paper</a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-57870-0_24" target="_blank">Springer</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="research-card">
+
+            <div class="research-thumb">
+                <a href="data-ml/data-analysis-projects/Internet by Country TCSII.pdf" target="_blank">
+                <img src="assets/research_poster_1_thumbnail.png" alt="Internet Analysis">
+                </a>
+            </div>
+
+                <div class="research-content">
+
+                    <h3>Global Internet Usage & Socioeconomic Analysis</h3>
+
+                    <p>
+                    Investigated correlations between internet adoption and global economic indicators across countries.
+                    </p>
+
+                    <ul>
+                        <li>Analyzed GDP, life expectancy, and social metrics</li>
+                        <li>Identified correlation patterns in global connectivity</li>
+                        <li>Built visualization pipelines using Pandas + Seaborn</li>
+                    </ul>
+
+                    <div class="research-meta">
+                    Tools: Python, Pandas, Seaborn
+                    </div>
+
+                    <div class="research-links">
+                        <a href="data-ml/data-analysis-projects/Internet by Country TCSII.pdf" target="_blank">Poster</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <h2 class="section-title">Additional Analysis Projects</h2>
+
+            <p class="section-subtitle">
+            Smaller exploratory studies applying statistical methods and visualization techniques.
             </p>
 
+            <div class="simple-card-list">
+
+                <div class="simple-card">
+                    <strong>Particulate Matter Analysis</strong> — Environmental air quality trends
+                </div>
+
+                <div class="simple-card">
+                    <strong>Solar Wind Analysis</strong> — Time-series exploration of solar activity
+                </div>
+
+                <div class="simple-card">
+                    <strong>Planaria Study</strong> — Biological pattern recognition analysis
+                </div>
+
+            </div>
         </div>
-        <br>
-        <div id="analysis-papers" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
-
-            <h3 style="padding:8px;">Additional Data Analysis Projects</h3>
-        
-            <p style="padding:8px;">
-                A collection of smaller analytical studies applying statistical methods and visualization techniques to real-world datasets.
-            </p>
-        
-            <ul style="padding: 0px 32px; color: white;">
-                <li><strong>Particulate Matter Analysis</strong> - Environmental data trends and air quality insights</li>
-                <li><strong>Solar Wind Analysis</strong> - Time-series data exploration of solar activity</li>
-                <li><strong>Planaria Study</strong> - Biological data analysis and pattern identification</li>
-            </ul>
-        
-            <section style="display:flex; flex-flow: row wrap; justify-content: space-around;">
-                <a href="data-ml/data-analysis-projects/Particulate Matter Analysis TCSII.pdf" target="_blank">
-                    <img src="assets/analysis_1_thumbnail.png" style="width:150px; margin:16px;">
-                </a>
-                <a href="data-ml/data-analysis-projects/Solar Wind Analysis TCSII.pdf" target="_blank">
-                    <img src="assets/analysis_2_thumbnail.png" style="width:150px; margin:16px;">
-                </a>
-                <a href="data-ml/data-analysis-projects/Planaria Analysis TCSII.pdf" target="_blank">
-                    <img src="assets/analysis_3_thumbnail.png" style="width:150px; margin:16px;">
-                </a>
-            </section>
-        
-        </div>
-        <br>
     </main>
 
-    <footer id="footer" class="center">
-        <p>© 2020-2026 Timothy Stockton</p>
-        <p><a href="mailto:timstocktonii@gmail.com">Contact Me</a></p>
+    <footer id="footer">
+        <div class="container footer-content">
+            <p>© 2020-2026 Timothy Stockton</p>
+            <p><a href="mailto:timstocktonii@gmail.com">Contact Me</a></p>
+        </div>
     </footer>
 
 </body>
