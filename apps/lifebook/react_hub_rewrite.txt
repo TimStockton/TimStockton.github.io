@@ -1,4 +1,3 @@
-Rewritten Portfolio Entry (React Hub App)
 Modular Hub Platform — Customizable User-Centric Web Application
 
 Type: Full-Stack Application (In Progress)
@@ -66,34 +65,9 @@ Modern stack competence, which recruiters actively look for
 [ React Frontend ] → [ ASP.NET API ] → [ Database ]
                           ↓
                       [ Docker ]
-2. Add a “Hub Example”
-
-Make it concrete:
 
 Example Hub: Note-Taking
 - Create/edit notes
 - Persist user-specific data
 - Structured for future features like tagging and search
-3. Show UI screenshots
-
-Even basic ones = huge credibility boost.
-
-🧠 Final note (important)
-
-This project doesn’t need to be “finished.”
-
-It just needs to clearly show:
-
-“I understand how modern applications are built and structured”
-
-If you stack this with:
-
-Psidemica (raw engineering power)
-Owl Assist (real-world system + AI + cloud)
-This (modern stack awareness)
-
-You hit a really nice trifecta:
-
-Past experience + real systems + modern tech
-
-That’s exactly what hiring managers want to see.
+Show UI screenshots
