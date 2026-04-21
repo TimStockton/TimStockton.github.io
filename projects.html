@@ -3,6 +3,13 @@
 
 <!-- Timothy C Stockton II -->
 
+<!-- TODO:
+    Turn featured projects into actual cards (grid layout, modern UI)
+    Add architecture diagrams (huge signal boost)
+    Add GitHub + demo buttons cleanly
+    Add “request flow” sections (this is recruiter catnip)
+-->
+
 <head>
     <title>TCSII</title>
     <meta charset="utf-8">
@@ -14,407 +21,158 @@
 <body>
 
     <header class="center">
-        <h1 style="margin:0; padding:0; padding-top: 8px;">Timothy Stockton</h1>
-        <h4 style="color:lightgreen; margin:0; padding:0;">Artist and Programmer</h3>
-        <p style="margin:0; padding:8px; padding-bottom: 16px;;">I'm a creative and self-motivated professional with a fine-tuned attention to detail and a passion for learning.</p>
-        <nav style="background-color: black;;">
-            <a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;
-            <a href="projects.html">Projects</a>&nbsp;&nbsp;&nbsp;
-            <a href="research.html">Research</a>&nbsp;&nbsp;&nbsp;
-            <a href="experience.html">Experience</a>&nbsp;&nbsp;&nbsp;
-            <a href="contact.html">Contact</a>&nbsp;&nbsp;&nbsp;
-            <a href="https://www.linkedin.com/in/timothy-stockton" target="blank">LinkedIn</a>&nbsp;&nbsp;&nbsp;
+        <h1 style="margin:0; padding-top: 8px;">Timothy Stockton</h1>
+        <h3 style="color:lightgreen; margin:0;">
+            Backend & Full-Stack Software Engineer | Cloud & Systems Focus
+        </h3>
+        <p style="padding:8px 16px;">
+            Building scalable applications, automating systems, and working across cloud infrastructure.
+        </p>
+    
+        <nav style="background-color: black;">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="research.html">Research</a>
+            <a href="experience.html">Experience</a>
+            <a href="contact.html">Contact</a>
+            <a href="https://www.linkedin.com/in/timothy-stockton" target="blank">LinkedIn</a>
             <a href="https://github.com/TimStockton" target="blank">GitHub</a>
         </nav>
     </header>
 
     <main class="center" id="main">
         <h2 style="color:lightblue;">Featured Projects</h2>
-        <div id="psidemica-website" style="width:70%; margin:auto; min-height:220px; min-width:360px;">
-            <h3>Psidemica</h3>
-            <a href="https://psidemica.com" target="blank"><img src="assets/psidemica_website_thumbnail.png" style="width: 20%; min-width:150px; max-width:300px; height:auto; float:right; margin:16px;"></a>
-            <p style="float:none; padding:8px;">Psidemica — Full-Stack Artist Platform & E-Commerce System
+        <br>
+        <p style="max-width:800px; margin:auto; padding:8px;">
+            Selected projects demonstrating full-stack development, backend systems,
+            and cloud-integrated applications.
+        </p>
+        <br>
+        <div style="width:70%; margin:auto; min-width:360px;">
 
-                Live: https://psidemica.com
-                
-                Tech Stack: PHP, JavaScript, HTML, CSS, MySQL, Python, AWS
-                
-                Overview
-                Psidemica is a full-stack web platform I designed and built from the ground up to serve as both an artist portfolio and a feature-rich web application. What started as a creative outlet evolved into a multi-functional system with user accounts, e-commerce capabilities, and interactive community features.
-                
-                Key Features
-                
-                Custom E-Commerce System
-                Built a complete storefront with product listings, cart functionality, and transaction handling
-                Designed backend logic for managing inventory, purchases, and user data
-                User Accounts & Member Hub
-                Implemented authentication, session handling, and user-specific content
-                Created a member dashboard with messaging, activity features, and interactive tools
-                API Integrations
-                Integrated external APIs (including NASA data) to provide dynamic, real-time content
-                Designed reusable patterns for handling API requests and responses
-                Admin Tooling
-                Developed internal tools for managing users, content, and site behavior
-                Enabled efficient updates without direct database manipulation
-                Automation & Testing
-                Built Python scripts to automate testing and validate functionality
-                Reduced manual verification time and improved reliability of deployments
-                
-                Engineering Highlights
-                
-                Designed the entire application architecture without relying on frameworks, requiring manual handling of routing, state, and data flow
-                Balanced front-end interactivity with back-end data consistency across multiple features
-                Built scalable patterns for adding new features without breaking existing functionality
-                Managed the project end-to-end, including design, development, testing, and iteration
-                
-                Challenges & Solutions
-                
-                Challenge: Managing state and user sessions without modern frameworks
-                Solution: Built custom session handling and structured server-side logic to maintain consistency across pages
-                Challenge: Preventing feature complexity from turning into unmaintainable code
-                Solution: Modularized functionality and created reusable components for both front-end and back-end logic
-                Challenge: Expanding from a simple portfolio into a full application
-                Solution: Iteratively redesigned the architecture to support new features like e-commerce and user systems
-                
-                Impact
-                
-                Demonstrates ability to design and build a complex, multi-feature application from scratch
-                Showcases full-stack development skills across front-end, back-end, and automation
-                Reflects long-term project ownership, iteration, and real-world problem solving
-                💡 Why this works (quick breakdown)
-                
-                Add these and it becomes elite-tier:
-                
-                Screenshots (dashboard, store, UI)
-                Architecture diagram (even simple)
-                “Future Improvements” section (shows growth mindset)</p>
-            <p style="padding:8px;">You can access the Psidemica artist portfolio website <a href="https://psidemica.com" target="blank">here</a>.</p>
-            <!-- include:
-            Screenshot
-            Tech stack
-            2–3 bullet achievements
-            Link to repo + demo -->
+            <h3>Psidemica — Full-Stack Platform & E-Commerce System</h3>
+        
+            <a href="https://psidemica.com" target="blank">
+                <img src="assets/psidemica_website_thumbnail.png"
+                     style="width:20%; min-width:150px; float:right; margin:16px;">
+            </a>
+        
+            <p style="padding:8px;">
+                Designed and built a multi-feature web platform from scratch, evolving from a portfolio site into a full-stack application with user accounts, e-commerce, and dynamic content.
+            </p>
+        
+            <ul style="padding:0px 32px; color: white;">
+                <li>Built custom e-commerce system with cart, transactions, and inventory management</li>
+                <li>Implemented authentication, sessions, and user-specific dashboards</li>
+                <li>Integrated external APIs to deliver dynamic real-time content</li>
+                <li>Developed admin tools for managing users and application data</li>
+                <li>Created Python scripts for automated testing and validation</li>
+            </ul>
+        
+            <p style="padding:8px;">
+                <strong>Tech:</strong> PHP, MySQL, JavaScript, Python, AWS
+            </p>
+        
+            <p style="padding:8px;">
+                🔗 <a href="https://psidemica.com" target="blank">Live Site</a>
+            </p>
+
+            <p><strong>Key Impact:</strong> Built from scratch, handled full application lifecycle, and designed scalable architecture.</p>
+        
         </div>
         <br>
-        <div>
-            <h3>owl assist information system</h3>
-            <p>Owl Assist — AI-Powered University Information System
+        <div style="width:70%; margin:auto; min-width:360px;">
 
-                Type: Research / Production System (Private Repository)
-                Tech Stack: Python, Flask, Dialogflow, Google Cloud, AWS, Selenium, BeautifulSoup, JavaScript, jQuery, AJAX, SQLite
-                
-                Overview
-                Owl Assist Information System (OAIS) is an AI-powered virtual assistant designed to provide automated, real-time responses to university-related inquiries. I was one of the first student developers on the project and later took on a key role in maintaining and expanding the system as it evolved into a production tool used by students, faculty, and prospective applicants.
-                
-                Due to institutional constraints, the source code and live system are not publicly accessible, but I can discuss architecture, design decisions, and implementation details.
-                
-                Key Features
-                
-                Conversational AI Integration
-                Built and maintained integrations with Dialogflow to interpret and respond to natural language queries
-                Enabled automated handling of common university questions (admissions, academics, campus info)
-                Dynamic Data Aggregation
-                Developed Python-based web scrapers using Selenium and BeautifulSoup
-                Collected and normalized data from multiple university sources to keep responses accurate and up-to-date
-                Full-Stack Web Application
-                Contributed to a Flask-based backend handling request routing, logic, and data processing
-                Implemented front-end features using JavaScript, jQuery, and AJAX for seamless user interaction
-                Cloud Deployment & Infrastructure
-                Worked with both AWS and Google Cloud services to support scalability and reliability
-                Helped maintain deployment pipelines and system uptime
-                Team Collaboration & Maintenance
-                Collaborated in a multi-developer environment using Git and project management tools
-                Contributed to ongoing feature development, bug fixes, and system improvements over multiple years
-                
-                Engineering Highlights
-                
-                Helped evolve the system from an early prototype into a stable, production-ready application
-                Designed data pipelines for scraping, processing, and serving structured information to the chatbot
-                Balanced asynchronous data collection with real-time query handling
-                Wrote and maintained documentation to support onboarding and long-term project sustainability
-                Led and mentored a small team of student developers, ensuring code quality and continuity
-                
-                Challenges & Solutions
-                
-                Challenge: Keeping chatbot responses accurate as university information changed frequently
-                Solution: Built automated scraping workflows to continuously refresh data from authoritative sources
-                Challenge: Integrating multiple cloud services and external APIs into a cohesive system
-                Solution: Established clear boundaries between services and standardized communication patterns
-                Challenge: Maintaining reliability in a system with many moving parts (scrapers, APIs, chatbot, frontend)
-                Solution: Implemented monitoring practices and iterative testing to catch failures early
-                
-                Impact
-                
-                Provided automated support for a wide range of university inquiries, reducing manual response workload
-                Demonstrated real-world application of AI, cloud infrastructure, and full-stack development
-                Served as a long-term, collaborative engineering project with measurable user-facing value
-                
-                Additional Context
-                
-                Featured in university publications and media coverage
-                Developed as part of a paid academic research initiative
-                Source code and live system are private, but technical discussion and diagrams are available upon request
-                💡 Why this hits hard
-                
-                This version:
-                
-                Makes “private repo” sound normal (because it is)
-                Emphasizes real users + real system
-                Shows team experience + leadership
-                Highlights architecture and data flow, not just tools
-                ⚡ Optional power-ups (HIGHLY recommended)
-                
-                Since you can’t show code, you should show thinking instead:
-                
-                1. Add an architecture diagram
-                
-                Even something simple like:
-                
-                User → Frontend → Flask API → Dialogflow
-                                          ↘ Scraper Pipeline → Database
-                
-                Instant credibility boost.
-                
-                2. Add a “Request Flow” section (this is gold)
-                
-                Example:
-                
-                User asks: “What are the application deadlines?”
-                
-                1. Query sent to Dialogflow
-                2. Intent matched to admissions category
-                3. Backend retrieves latest scraped data
-                4. Response constructed and returned to UI
-                
-                This makes recruiters go:
-                “Oh, this person actually understands systems.”
-                
-                Add screenshots (if allowed)
-                Even partial UI or blurred data is fine.</p>
-            <!-- include:
-            Screenshot
-            Tech stack
-            2–3 bullet achievements
-            Link to repo + demo -->
+            <h3>Owl Assist — AI-Powered Information System</h3>
+        
+            <p style="padding:8px;">
+                Full-stack virtual assistant used to deliver automated responses to university inquiries,
+                integrating conversational AI with real-time data pipelines.
+            </p>
+        
+            <ul style="padding:0px 32px; color: white;">
+                <li>Built Flask-based backend integrating Dialogflow for natural language processing</li>
+                <li>Developed web scraping pipelines using Selenium and BeautifulSoup</li>
+                <li>Designed data flow from scraped sources to chatbot responses</li>
+                <li>Collaborated on cloud deployment across AWS and Google Cloud</li>
+                <li>Led development efforts and mentored team members</li>
+            </ul>
+        
+            <p style="padding:8px;">
+                <strong>Tech:</strong> Python, Flask, AWS, GCP, Dialogflow, Selenium
+            </p>
+        
+            <p style="padding:8px;">
+                🔒 Private repository — architecture and implementation details available upon request
+            </p>
+
+            <p><strong>Key Impact:</strong> Trained new-hires, added scalable features, and improved documentation.</p>
+        
         </div>
         <br>
-        <div>
-            <h3>lifebook</h3>
-            <p>Modular Hub Platform — Customizable User-Centric Web Application
+        <div style="width:70%; margin:auto; min-width:360px;">
 
-                Type: Full-Stack Application (In Progress)
-                Tech Stack: React, Tailwind CSS, ASP.NET (C#), REST APIs, Docker
-                
-                Overview
-                This project is a modular, full-stack web application designed to allow users to create and manage customizable “hubs” tailored to specific use cases. Each hub acts as a focused environment (e.g., note-taking, news aggregation, productivity tools), enabling users to organize information and tools in a way that fits their workflow.
-                
-                The project was built to deepen my experience with modern frameworks, API design, and containerized development, while exploring scalable patterns for user-driven customization.
-                
-                Key Features
-                
-                Dynamic Hub System
-                Designed a flexible architecture where each hub represents a distinct functional module
-                Enabled users to create and interact with multiple hubs, each with its own purpose and configuration
-                Modern Front-End Architecture
-                Built responsive UI components using React and Tailwind CSS
-                Structured components for reusability and maintainability across different hub types
-                RESTful API Design
-                Developed backend endpoints in ASP.NET to handle data operations and user interactions
-                Established clear separation between client and server responsibilities
-                Authentication & User Flow
-                Implemented secure login flow and user-based routing
-                Managed session state and conditional rendering based on authentication status
-                Containerized Development
-                Used Docker to standardize the development environment and simplify deployment
-                Enabled consistent builds and reduced environment-specific issues
-                
-                Engineering Highlights
-                
-                Designed the application with modularity in mind, allowing new hub types to be added without major refactoring
-                Practiced component-driven development, breaking UI into scalable, reusable pieces
-                Built and consumed APIs with clear contracts, reinforcing separation of concerns
-                Explored modern development workflows, including containerization and structured project organization
-                
-                Challenges & Solutions
-                
-                Challenge: Designing a flexible system that supports multiple hub types without duplicating logic
-                Solution: Created reusable components and abstracted shared functionality across hubs
-                Challenge: Managing state across different parts of the application
-                Solution: Structured state handling to keep components predictable and reduce unnecessary re-renders
-                Challenge: Integrating front-end and back-end systems cleanly
-                Solution: Defined consistent API patterns and ensured clear data contracts between layers
-                
-                Current Status & Future Work
-                
-                Expanding hub types to support additional use cases (e.g., productivity tools, data dashboards)
-                Enhancing UI/UX for better customization and user experience
-                Exploring deployment strategies for a fully containerized production environment
-                
-                Impact
-                
-                Demonstrates hands-on experience with modern web development technologies and patterns
-                Shows ability to design scalable, modular systems rather than one-off applications
-                Reflects initiative to learn and apply industry-relevant tools beyond academic environments
-                💡 Why this works
-                
-                This positions your project as:
-                
-                Intentional learning, not random experimentation
-                System design thinking, not just UI work
-                Modern stack competence, which recruiters actively look for
-                ⚡ Optional upgrades (if you want this to punch even harder)
-                1. Add a simple architecture diagram
-                [ React Frontend ] → [ ASP.NET API ] → [ Database ]
-                                          ↓
-                                      [ Docker ]
-                
-                Example Hub: Note-Taking
-                - Create/edit notes
-                - Persist user-specific data
-                - Structured for future features like tagging and search
-                Show UI screenshots
-                </p>
-            <!-- include:
-            Screenshot
-            Tech stack
-            2–3 bullet achievements
-            Link to repo + demo -->
+            <h3>Lifebook — Modular Full-Stack Hub Platform (In Progress)</h3>
+        
+            <p style="padding:8px;">
+                Designing a modular web application allowing users to create customizable “hubs”
+                for organizing tools, data, and workflows.
+            </p>
+        
+            <ul style="padding:0px 32px; color: white;">
+                <li>Built React frontend with reusable component architecture</li>
+                <li>Developed REST APIs using ASP.NET for data and user management</li>
+                <li>Implemented authentication and user-based routing</li>
+                <li>Containerized development using Docker for consistent environments</li>
+            </ul>
+        
+            <p style="padding:8px;">
+                <strong>Tech:</strong> React, Tailwind, ASP.NET, Docker
+            </p>
+
+            <p><strong>Key Impact:</strong> Built from scratch, handled full application lifecycle, and designed scalable architecture.</p>
+        
         </div>
         <br>
         <h2 style="color:lightblue;">Engineering Projects</h2>
-        <div>
-            <h3>C Pay System</h3>
-            <p></p>
-            <!-- Focus on:
-            problem solved
-            complexity
-            performance -->
-        </div>
+
+        <ul style="max-width:800px; margin:auto; text-align:left; color: white;">
+            <li><strong>Java Deadlock Monitor</strong> - Detects and analyzes thread deadlocks in concurrent systems</li>
+            <li><strong>C Pay System</strong> - Simulates payroll processing with structured data handling</li>
+            <li><strong>C++ Rolodex</strong> - Data structure-based contact management system</li>
+        </ul>
         <br>
-        <div>
-            <h3>CPP Rolodex</h3>
-            <p></p>
-            <!-- Focus on:
-            problem solved
-            complexity
-            performance -->
-        </div>
-        <br>
-        <div>
-            <h3>Java Deadlock Monitor</h3>
-            <p></p>
-            <!-- Focus on:
-            problem solved
-            complexity
-            performance -->
-        </div>
-        <br>
-        <h2 style="color:lightblue;">Data and Machine Learning</h2>
-        <div>
-            <h3>breast cancer research paper (published)</h3>
-            <p></p>
-            <!-- summarize the process, show some visuals, show some code -->
-        </div>
-        <br>
-        <div>
-            <h3>internet by country research poster</h3>
-            <p></p>
-            <!-- summarize the process, show some visuals, show some code -->
-        </div>
-        <br>
-        <h2 style="color:lightblue;">Tools and Automation</h2>
-        <div>
-            <h3>shell user management script</h3>
-            <p>reports expired accounts, locks or unlocks accounts, creates users. </p>
-            <!-- summarize the logic, show snippets, maybe allow download -->
-        </div>
-        <br>
-        <div>
-            <h3>python music library manager script</h3>
-            <p>can batch edit metadata, filter by metadata and custom tags, build playlists by genre or custom tags</p>
-            <!-- summarize the logic, show snippets, maybe allow download -->
-        </div>
-        <br>
-        <div>
-            <h3>shell audio format converters</h3>
-            <p>audio to aiff, audio to mp3, lossless to flac</p>
-            <!-- summarize the logic, show snippets, maybe allow download -->
-        </div>
-        <br>
-        <div>
-            <h3>general shell scripts</h3>
-            <p>fix spaces in file and directory names, custom which command that determines if a file is executable and where it is, filesystem usage warning script, script to cat lists and remove duplicates.</p>
-            <!-- summarize the logic, show snippets, maybe allow download -->
-        </div>
-        <br>
-        <br>
-        <h2 style="color:lightblue;">Security & Cryptography</h2>
-        <br>
-        <div>
-            <h3>xxxx</h3>
-            <p>xxxx</p>
-            <!-- xxxx -->
-        </div>
+        <h2 style="color:lightblue;">Automation & Tools</h2>
+
+        <ul style="max-width:800px; margin:auto; text-align:left; color: white;">
+            <li><strong>Linux User Management Script</strong> - Automates account creation, locking, and auditing</li>
+            <li><strong>Music Library Manager</strong> - Python tool for metadata editing and playlist generation</li>
+            <li><strong>Audio Conversion Scripts</strong> - Batch processing for format conversion (MP3, AIFF, FLAC)</li>
+            <li><strong>Utility Shell Scripts</strong> - File cleanup, disk monitoring, and command-line tools</li>
+        </ul>
         <br>
         <h2 style="color:lightblue;">Foundations</h2>
-        <!-- make collapsed by default, freecodecamp style projects -->
-        <br>
-        <div>
-            <h3>JavaScript Calculator</h3>
-            <p>- Built dynamic expression parser using JS
-                - Implemented input validation and operator handling
-                - Designed responsive UI
-                Tech: JavaScript, HTML, CSS</p>
-            <a href="archive/JavaScriptCalculator/index.html" target="_blank">view the demo here</a>
-        </div>
-        <br>
-        <div>
-            <h3>Drum machine</h3>
-            <p>xxxx</p>
-            <a href="archive/DrumMachine/index.html" target="_blank">view the demo here</a>
-        </div>
-        <br>
-        <div>
-            <h3>Markdown Previewer</h3>
-            <p>xxxx</p>
-            <a href="archive/MarkdownPreviewer/index.html" target="_blank">view the demo here</a>
-        </div>
-        <br>
-        <div>
-            <h3>Random Quote Machine</h3>
-            <p>xxxx</p>
-            <a href="archive/RandomQuoteMachine/index.html" target="_blank">view the demo here</a>
-        </div>
-        <br>
-        <div>
-            <h3>Roman Numeral Converter</h3>
-            <p>I created a Roman numeral converter too. You can enter a Roman numeral, and it will output the Arabic number equivalent. You can also enter an Arabic number, and it will output the Roman numeral equivalent. Comes in handy for the Superbowl.</p>
-            <a href="archive/Roman Numeral Conversion/roman.html" target="_blank">view the demo here</a>
-        </div>
-        <br>
-        <div>
-            <h3>Shift Cipher</h3>
-            <p>a ROT13 Encoder/Decoder, also known as a Shift Cipher or a Caesars Cipher. It takes the input, and shifts each letter provided by thirteen places in the alphabet. It can be used to send and recieve basic secret messages. (not very secure in the grand scheme though)</p>
-            <a href="archive/Shift Cipher/caesars_cipher.html" target="_blank">view the demo here</a>
-        </div>
-        <br>
-        <div>
-            <h3>Survey Form</h3>
-            <p>xxxx</p>
-            <a href="archive/SurveyForm/index.html" target="_blank">view the demo here</a>
-        </div>
-        <br>
-        <div>
-            <h3>Temperature Converter</h3>
-            <p>a simple temperature converter that outputs values in Fahrenheit, Celcius, and Kelvin based on the value you enter.</p>
-            <a href="archive/TemperatureConverter/index.html" target="_blank">view the demo here</a>
-        </div>
+
+        <p style="max-width:800px; margin:auto;">
+            Early projects focused on frontend fundamentals and JavaScript development.
+        </p>
+
+        <ul style="max-width:800px; margin:auto; text-align:left; color: white;">
+            <li><a href="archive/JavaScriptCalculator/index.html">JavaScript Calculator</a></li>
+            <li><a href="archive/DrumMachine/index.html">Drum Machine</a></li>
+            <li><a href="archive/MarkdownPreviewer/index.html">Markdown Previewer</a></li>
+            <li><a href="archive/RandomQuoteMachine/index.html">Random Quote Machine</a></li>
+            <li><a href="archive/Roman Numeral Conversion/roman.html">Roman Numeral Converter</a></li>
+            <li><a href="archive/Shift Cipher/caesars_cipher.html">Shift Cipher</a></li>
+            <li><a href="archive/SurveyForm/index.html">Survey Form</a></li>
+            <li><a href="archive/TemperatureConverter/index.html">Temperature Converter</a></li>
+        </ul>
         <br>
     </main>
 
     <footer id="footer" class="center">
-        <p>Copyright &copy; 2020-2026 Timothy Stockton</p>
-        <p>Contact Me: <a href="mailto:timstocktonii@gmail.com">here</a></p>
+        <p>© 2020-2026 Timothy Stockton</p>
+        <p><a href="mailto:timstocktonii@gmail.com">Contact Me</a></p>
     </footer>
 
 </body>
