@@ -1,4 +1,4 @@
-Psidemica — Full-Stack Artist Platform & E-Commerce System
+Psidemica - Full-Stack Artist Platform & E-Commerce System
 
 Live: https://psidemica.com
 

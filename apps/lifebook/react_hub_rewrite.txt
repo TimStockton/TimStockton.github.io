@@ -1,4 +1,4 @@
-Modular Hub Platform — Customizable User-Centric Web Application
+Modular Hub Platform - Customizable User-Centric Web Application
 
 Type: Full-Stack Application (In Progress)
 Tech Stack: React, Tailwind CSS, ASP.NET (C#), REST APIs, Docker

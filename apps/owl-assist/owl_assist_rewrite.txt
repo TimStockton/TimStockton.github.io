@@ -1,4 +1,4 @@
-Owl Assist — AI-Powered University Information System
+Owl Assist - AI-Powered University Information System
 
 Type: Research / Production System (Private Repository)
 Tech Stack: Python, Flask, Dialogflow, Google Cloud, AWS, Selenium, BeautifulSoup, JavaScript, jQuery, AJAX, SQLite
