@@ -16,6 +16,7 @@ This is my portfolio with projects in the following categories: [v2.0.0]
 - [x] modernized the site styling
 
 ## IDEAS / TO DO:
+- [ ] FIX STYLE ON MOBILE !!!
 - [ ] finish style cleanup
 - [ ] add more information where needed
 - [ ] improve use of thumbnails and links

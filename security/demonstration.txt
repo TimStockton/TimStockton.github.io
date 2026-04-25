@@ -47,7 +47,7 @@ Easily broken via frequency analysis → demonstrates why modern encryption requ
 Serves as a baseline for understanding stronger algorithms
 Example: Symmetric Encryption System
 
-This one has the most potential—lean into it.
+This one has the most potential-lean into it.
 
 Symmetric Encryption & Transmission System
 
@@ -92,7 +92,7 @@ Basic hashing + password storage example
 Rate limiting / brute force protection concept
 🎯 Where this section should live
 
-You asked earlier about structure—here’s the clean way:
+You asked earlier about structure-here’s the clean way:
 
 Option A (recommended)
 
@@ -125,4 +125,4 @@ You’re showing:
 
 “I understand how security mechanisms work under the hood”
 
-That’s still valuable—just present it accurately and intelligently.
+That’s still valuable-just present it accurately and intelligently.

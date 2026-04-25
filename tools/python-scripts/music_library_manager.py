@@ -615,7 +615,7 @@ def get_comment_raw(file_path: str) -> str:
     suffix = file_path.lower()
 
     try:
-        # MP3 — ID3 COMM frames
+        # MP3 - ID3 COMM frames
         if suffix.endswith(".mp3"):
             audio = ID3(file_path)
             comments = []
@@ -624,12 +624,12 @@ def get_comment_raw(file_path: str) -> str:
                     comments.extend(frame.text)
             return " ".join(comments)
 
-        # M4A — MP4 atom ©cmt
+        # M4A - MP4 atom ©cmt
         elif suffix.endswith(".m4a"):
             audio = MP4(file_path)
             return " ".join(audio.tags.get("©cmt", []))
 
-        # FLAC — Vorbis comments (case-insensitive, multi-key)
+        # FLAC - Vorbis comments (case-insensitive, multi-key)
         elif suffix.endswith(".flac"):
             audio = FLAC(file_path)
 
