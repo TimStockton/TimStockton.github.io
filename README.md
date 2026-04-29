@@ -14,19 +14,16 @@ This is my portfolio with projects in the following categories: [v2.0.0]
 - [x] reorganized all files into new dir structure
 - [x] split old portfolio into seperate pages
 - [x] modernized the site styling
+- [x] fixed mobile styling
 
 ## IDEAS / TO DO:
-- [ ] FIX STYLE ON MOBILE !!!
-- [ ] finish style cleanup
-- [ ] add more information where needed
-- [ ] improve use of thumbnails and links
+- [ ] add more information where needed (spotlighths? oais links?)
 - [ ] remove unused files
-- [ ] optimize filesize of images used
+- [ ] optimize image filesize
 
 - [ ] Make markdown previewer functional
 - [ ] Make drum machine functional
 - [ ] Make survey submittable and better
-- [ ] make a setup script for arch linux
 - [ ] remove code from education directories and code archive after integrating
 - [ ] create seperate archive repo for full useable code, not just display/demo
 
