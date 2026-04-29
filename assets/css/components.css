@@ -182,6 +182,7 @@ footer {
     width: 100%;
     border-radius: 10px;
     object-fit: cover;
+    max-width: 300px;
 }
   
 .project-content h3 {
@@ -262,6 +263,7 @@ footer {
 .research-thumb img {
     width: 100%;
     border-radius: 10px;
+    max-width: 300px;
 }
   
 .research-content h3 {
@@ -362,4 +364,23 @@ footer {
     font-size: 1.5rem;
     margin-bottom: 8px;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .research-card {
+        grid-template-columns: 1fr;
+    }
+
+    /* temp fix for index buttons on mobile */
+    .btn.primary {
+        margin-bottom: 16px;
+    }
+    .btn.secondary {
+        margin-bottom: 16px;
+    }
+
 }

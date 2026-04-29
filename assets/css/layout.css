@@ -40,3 +40,10 @@
 .hero {
     padding-top: 140px; /* compensate for navbar */
 }
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
