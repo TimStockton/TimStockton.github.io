@@ -1,25 +1,16 @@
-# Fenwig5.github.io
-This is my portfolio with projects in the following categories: [v2.0.0]
+# TimStockton.github.io
+Welcome to my computer science portfolio [v2.0.0]
+A static site displaying projects in:
 - software engineering
 - web development
 - machine learning
 - data analysis
-- cyber security
-- server administration
-- e-commerce
-- tools and scripts
+- scripting
 
-## DONE:
-- [x] added UML code projects
-- [x] reorganized all files into new dir structure
-- [x] split old portfolio into seperate pages
-- [x] modernized the site styling
-- [x] fixed mobile styling
-
-## IDEAS / TO DO:
-- [ ] add more information where needed (spotlighths? oais links?)
+## TO DO:
+- [ ] add home server and spotlighths?
 - [ ] remove unused files
-- [ ] optimize image filesize
+- [ ] optimize image filesizes
 
 - [ ] Make markdown previewer functional
 - [ ] Make drum machine functional
