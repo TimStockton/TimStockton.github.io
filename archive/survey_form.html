@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Timothy C Stockton II -->
+
+<head>
+    <title>Survey </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            text-align: center;
+            display: block;
+        }
+
+        input, button, p {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2 id="title">Feedback Survey</h2>
+        <form id="survey-form">
+            <label id="name-label">Name:<input required id="name" type="text" placeholder="First Last"></label>
+            <br>
+            <label id="email-label">Email:<input required id="email" type="email" placeholder="youremail@email.com"></label>
+            <br>
+            <label id="number-label">Age: <input required id="number" type="number" min=5 max=99 placeholder="ex: 25"></label>
+            <br>
+            <p>How much do you like the site?</p>
+            <select id="dropdown">
+                <option value="min">Not At All</option>
+                <option value="med">A Little</option>
+                <option value="max">A Lot</option>
+            </select>
+            <br>
+            <p>Which languages do you know?</p>
+            <label><input required type="checkbox" name="know" value="HTML"> HTML</label>
+            <label><input required type="checkbox" name="know" value="JavaScript"> JavaScript</label>
+            <label><input required type="checkbox" name="know" value="C++"> C++</label>
+            <label><input required type="checkbox" name="know" value="Python"> Python</label>
+            <label><input required type="checkbox" name="know" value="Other"> Other</label>
+            <br>
+            <p>Which language is your favorite?</p>
+            <label><input required type="radio" name="favorite" value="HTML"> HTML</label>
+            <label><input required type="radio" name="favorite" value="JavaScript"> JavaScript</label>
+            <label><input required type="radio" name="favorite" value="C++"> C++</label>
+            <label><input required type="radio" name="favorite" value="Python"> Python</label>
+            <label><input required type="radio" name="favorite" value="Other"> Other</label>
+            <br>
+            <br>
+            <label for="comments">Additional comments:</label>
+            <br>
+            <textarea id="comments" name="comments" rows="4" cols="40"></textarea>
+            <br>
+            <br>
+            <button id="submit" type="submit">Submit Form</button>
+        </form>
+    </div>
+</body>
+
+<script>
+</script>
+
+</html>
